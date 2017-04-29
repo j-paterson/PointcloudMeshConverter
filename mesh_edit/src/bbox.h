@@ -53,7 +53,7 @@ struct BBox {
    * Creates a bounding box with given bounds (component wise).
    */
   BBox(const double minX, const double minY, const double minZ,
-       const double maxX, const double maxY, const double maxZ) {
+  const double maxX, const double maxY, const double maxZ) {
     min = Vector3D(minX, minY, minZ);
     max = Vector3D(maxX, maxY, maxZ);
 		extent = max - min;
@@ -112,15 +112,33 @@ struct BBox {
     return (min + max) / 2;
   }
 
+  //  BBox(const double minX, const double minY, const double minZ, const double maxX, const double maxY, const double maxZ) {
   vector <BBox> OctChildren() {
     //numbering system
     //when viewed from above 1 = NW, 2 = NE, 3 = SW, 4 = SE, then for below the same order follows 5 - 8
     std::vector<BBox> children;
     //BBox(const double minX, const double minY, const double minZ, const double maxX, const double maxY, const double maxZ)
-    BBox hold
+
+    Vector3D centroid = (min + max) / 2;
+    Vector3D maxHalfDist = centroid - max; //each component of this vector is the x,y,z halfdist
+    Vector3D minHalfDist = centroid - min;
+
+
+    BBox one(centroid.x, centroid.y, centroid.z, max.x, max.y, max.z);
+    BBox two(centroid.x, centroid.y + maxhalfDist.y, centroid.z, max.x, max.y + maxhalfDist.y, max.z);
+    BBox three(min.x, min.y, min.z + minHalfDist.z, centroid.x, centroid.y, centroid.z + minHalfDist.z);
+    BBox four(centroid.x + maxHalfDist.x, centroid.y, centroid.z, max.x + maxHalfDist.x, max.y, max.z);
+
+    BBox five();
+    BBox six();
+    BBox seven();
+    BBox eight();
 
 
   }
+
+  //ALSO CONSIDER MAKING A FUNCTION THAT RETURNS THE CORNER POINTS OF THE CURRENT BBOX, COULD BE USED FOR INDICATOR?
+
 
   /**
    * Compute the surface area of the bounding box.

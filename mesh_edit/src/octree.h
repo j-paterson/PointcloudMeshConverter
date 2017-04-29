@@ -1,4 +1,5 @@
 
+/*
 struct OctreeNode //this is the parent
 {
     BBox NodeBB; // this has max, min, and extent members
@@ -9,6 +10,7 @@ struct OctreeNode //this is the parent
     Vector3D     HalfSize;
     bool         IsLeaf;
     int depth;
+    int maxDepth;
 
     OctreeNode(std::vector<Point> points) {
       //construct the root, go through all points in the provided vector and determine if they are in any of the children?
@@ -22,6 +24,7 @@ struct OctreeNode //this is the parent
 
       for (Point p : points) {
           NodeBB.expand(p.coordinates); //should expand the parent's bbox to include all points provide in our .ply.
+          nodePoints.push_back(p);
       }
 
       Center = NodeBB.centroid();
@@ -30,16 +33,11 @@ struct OctreeNode //this is the parent
 
       //generate the 8 inner children of the current node.
       if (points.size() != 0) { //generate children when the current one isn't empty.
-
-
-
-
+      //
       }
-
-
-
     }
 };
+*/
 
 #if 0
 struct OctreeInnerNode //this is the middle nodes, essentially all except the
@@ -80,9 +78,19 @@ void findMaxPoints(std::vector<Vector3D> points, BBox bb) {
 
 class Octree {
   public:
-
    //CAN PUT ANY SEARCH OR OTHER NECESSARY FUNCTION HERE.
-  private:
+
+   Octree(std::vector<Point> points, int depth, Octree parent, BBox nodeBB);
    OctreeNode* root; ///< root node of the OT
    OctreeNode *construct_ot(const std::vector<Vector3D> points, size_t max_depth);
+
+  private:
+    BBox NodeBB; // this has max, min, and extent members
+    OctreeInnerNode * Children[8];
+    OctreeNode * Parent; // optional
+    std::vector<Point> nodePoints; //POINT CLASS
+    Vector3D     Center;
+    Vector3D     HalfSize;
+    bool         IsLeaf;
+    int depth;
 }
