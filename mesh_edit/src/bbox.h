@@ -129,12 +129,22 @@ struct BBox {
     BBox three(min.x, min.y, min.z + minHalfDist.z, centroid.x, centroid.y, centroid.z + minHalfDist.z);
     BBox four(centroid.x + maxHalfDist.x, centroid.y, centroid.z, max.x + maxHalfDist.x, max.y, max.z);
 
-    BBox five();
-    BBox six();
-    BBox seven();
-    BBox eight();
+    BBox five(centroid.x, centroid.y, centroid.z + maxHalfDist.z, max.x, max.y, max.z + maxHalfDist.z);
+    BBox six(min.x + minHalfDist.x, min.y, min.z, centroid.x + minHalfDist.x, centroid.y, centroid.z);
+    BBox seven(min.x, min.y, min.z, centroid.x, centroid.y, centroid.z);
+    BBox eight(min.x, min.y + minHalfDist.y, min.z, centroid.x, centroid.y + min.y, centroid.z);
 
+    children.push_back(one);
+    children.push_back(two);
+    children.push_back(three);
+    children.push_back(four);
 
+    children.push_back(five);
+    children.push_back(six);
+    children.push_back(seven);
+    children.push_back(eight);
+
+    return children;
   }
 
   //ALSO CONSIDER MAKING A FUNCTION THAT RETURNS THE CORNER POINTS OF THE CURRENT BBOX, COULD BE USED FOR INDICATOR?
