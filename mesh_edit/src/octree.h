@@ -35,12 +35,14 @@ void findMaxPoints(std::vector<Vector3D> points, BBox bb) {
 }
 #endif
 
+#include "bbox.h";
+
 
 class OctreeNode {
   public:
    //CAN PUT ANY SEARCH OR OTHER NECESSARY FUNCTION HERE.
 
-   OctreeNode(std::vector<Point> points, int depth, Octree parent, BBox nodeBB);
+   OctreeNode(vector<Point> points, int depth, Octree parent, BBox nodeBB);
    //OctreeNode* root; ///< root node of the OT
    //OctreeNode *construct_ot(const std::vector<Vector3D> points, size_t max_depth);
 
