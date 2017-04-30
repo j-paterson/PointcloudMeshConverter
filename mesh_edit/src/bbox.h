@@ -113,7 +113,7 @@ struct BBox {
   }
 
   //  BBox(const double minX, const double minY, const double minZ, const double maxX, const double maxY, const double maxZ) {
-  vector <BBox> OctChildren() {
+  std::vector<BBox> OctChildren() {
     //numbering system
     //when viewed from above 1 = NW, 2 = NE, 3 = SW, 4 = SE, then for below the same order follows 5 - 8
     std::vector<BBox> children;
@@ -148,7 +148,9 @@ struct BBox {
   }
 
   //ALSO CONSIDER MAKING A FUNCTION THAT RETURNS THE CORNER POINTS OF THE CURRENT BBOX, COULD BE USED FOR INDICATOR?
+  std::vector<Vector3D> getCorners() {
 
+  }
 
   /**
    * Compute the surface area of the bounding box.
