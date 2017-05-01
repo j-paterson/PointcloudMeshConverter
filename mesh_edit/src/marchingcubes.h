@@ -6,7 +6,7 @@
 
 using namespace std;
 
-typedef void (* vFunctionCall)(Vector3D args);
+typedef int (* vFunctionCall)(Vector3D args);
 
 typedef struct {
     vector<CGL::Vector3D> points;

@@ -275,82 +275,57 @@ int triTable[256][16] =
 {0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}};
 
-Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
-{
-    Mesh final_mesh = new Mesh;
-    //checking to see if there are children for the current node
-    if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
-        for(int i = 0; i<8; i++){
-            marchingCubes(currentNode.Children[i], IndicatorFunction);
-        }
-    }else if(currentNode.IsLeaf){
-        //we have hit a leaf node, calculate an index for the octree node's cube.
-        unsigned char index = getIndex(currentNode, IndicatorFunction);
-        //Index into the tri table, which holds the edges intersected by triangles in sets of 3
-        for (int i=0;triTable[index][i]!=-1;i+=3) {
-          Triangle newTri();
-          //For each set of three edges, find and add the vertices to the triangle and mesh points
-          for(int j=0; j<3; j++){
-              newTri.points.add(getEdgePoint(currentNode, triTable[index][i+j]));
-              final_mesh.points.add(newTri.points[j]);
-          }
-          //Add the completed triangle to the mesh triangles.
-          final_mesh.triangles.add(Triangle);
-       }
-    }
-}
-
 Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
     vector<Vector3D> corners = currentNode.NodeBB.getCorners();
-    Vector3D edgePoint1 = new Vector3D;
-    Vector3D edgePoint2 = new Vector3D;
+    Vector3D * edgePoint1 = new Vector3D;
+    Vector3D * edgePoint2 = new Vector3D;
     if(edgeNum==0){
-        edgePoint1=corners[0];
-        edgePoint2=corners[1];
+        edgePoint1=&corners[0];
+        edgePoint2=&corners[1];
     }else if(edgeNum==1){
-        edgePoint1=corners[1];
-        edgePoint2=corners[2];
+        edgePoint1=&corners[1];
+        edgePoint2=&corners[2];
     }else if(edgeNum==2){
-        edgePoint1=corners[2];
-        edgePoint2=corners[3];
+        edgePoint1=&corners[2];
+        edgePoint2=&corners[3];
     }else if(edgeNum==3){
-        edgePoint1=corners[3];
-        edgePoint2=corners[0];
+        edgePoint1=&corners[3];
+        edgePoint2=&corners[0];
     }else if(edgeNum==4){
-        edgePoint1=corners[4];
-        edgePoint2=corners[5];
+        edgePoint1=&corners[4];
+        edgePoint2=&corners[5];
     }else if(edgeNum==5){
-        edgePoint1=corners[5];
-        edgePoint2=corners[6];
+        edgePoint1=&corners[5];
+        edgePoint2=&corners[6];
     }else if(edgeNum==6){
-        edgePoint1=corners[6];
-        edgePoint2=corners[7];
+        edgePoint1=&corners[6];
+        edgePoint2=&corners[7];
     }else if(edgeNum==7){
-        edgePoint1=corners[7];
-        edgePoint2=corners[4];
+        edgePoint1=&corners[7];
+        edgePoint2=&corners[4];
     }else if(edgeNum==8){
-        edgePoint1=corners[0];
-        edgePoint2=corners[4];
+        edgePoint1=&corners[0];
+        edgePoint2=&corners[4];
     }else if(edgeNum==9){
-        edgePoint1=corners[1];
-        edgePoint2=corners[5];
+        edgePoint1=&corners[1];
+        edgePoint2=&corners[5];
     }else if(edgeNum==10){
-        edgePoint1=corners[2];
-        edgePoint2=corners[6];
+        edgePoint1=&corners[2];
+        edgePoint2=&corners[6];
     }else if(edgeNum==11){
-        edgePoint1=corners[3];
-        edgePoint2=corners[7];
+        edgePoint1=&corners[3];
+        edgePoint2=&corners[7];
     }
-    return CGL::Vector3D(((edgePoint1.x+edgePoint2.x)/2),
-                    ((edgePoint1.y+edgePoint2.y)/2),
-                    ((edgePoint1.z+edgePoint2.z)/2));
+    return Vector3D(((edgePoint1->x+edgePoint2->x)/2),
+                    ((edgePoint1->y+edgePoint2->y)/2),
+                    ((edgePoint1->z+edgePoint2->z)/2));
 }
 
 unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
     unsigned char index=0;
     //Get all corners of the current node and compute it's index in the edge table
-    vector<Vector3D> corners = getCorners(currentNode);
+    vector<Vector3D> corners = currentNode.NodeBB.getCorners();
     if (IndicatorFunction(corners[0])==1) index |=   1;
     if (IndicatorFunction(corners[1])==1) index |=   2;
     if (IndicatorFunction(corners[2])==1) index |=   4;
@@ -371,6 +346,33 @@ int IndicatorFunction(CGL::Vector3D point)
      }else{
          return 0;
      }
+}
+
+
+Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
+{
+    Mesh * final_mesh = new Mesh;
+    //checking to see if there are children for the current node
+    if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
+        for(int i = 0; i<8; i++){
+            marchingCubes(currentNode.Children[i], IndicatorFunction);
+        }
+    }else if(currentNode.IsLeaf){
+        //we have hit a leaf node, calculate an index for the octree node's cube.
+        unsigned char index = getIndex(currentNode, IndicatorFunction);
+        //Index into the tri table, which holds the edges intersected by triangles in sets of 3
+        for (int i=0;triTable[index][i]!=-1;i+=3) {
+          Triangle * newTri = new Triangle;
+          //For each set of three edges, find and add the vertices to the triangle and mesh points
+          for(int j=0; j<3; j++){
+              newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
+              final_mesh->points.push_back(newTri->points[j]);
+          }
+          //Add the completed triangle to the mesh triangles.
+          final_mesh->triangles.push_back(*newTri);
+       }
+    }
+    return *final_mesh;
 }
 
 
