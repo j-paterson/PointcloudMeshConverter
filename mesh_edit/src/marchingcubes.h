@@ -1,7 +1,6 @@
 #ifndef MARCHINGCUBES_H
 #define MARCHINGCUBES_H
 #include <vector>
-#include "Point.h"
 #include "octree.h"
 
 using namespace std;
