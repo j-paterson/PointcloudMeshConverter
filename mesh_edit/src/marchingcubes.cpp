@@ -362,11 +362,17 @@ void printmesh(Mesh* mResult) {
 void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh)
 {
     //checking to see if there are children for the current node
+    cout<<"Got to here"<<endl;
+    cout<<currentNode.IsLeaf<<endl;
+    cout<<currentNode.hasChildren<<endl;
     if(!currentNode.IsLeaf && currentNode.hasChildren){
         for(int i = 0; i<8; i++){
+            cout<<"Moving down to children:";
+            cout<<currentNode.Children.size()<<endl;
             marchingCubes(currentNode.Children[i], IndicatorFunction, final_mesh);
         }
     }else if(currentNode.IsLeaf){
+        cout<<"Hit a leaf"<<endl;
         //we have hit a leaf node, calculate an index for the octree node's cube.
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3
