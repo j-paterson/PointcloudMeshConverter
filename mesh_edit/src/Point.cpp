@@ -8,6 +8,6 @@
 
 #include "Point.h"
 
-Point::Point(Vector3D p) {
+Point::Point(CGL::Vector3D p) {
     this->coordinates = p;
 }

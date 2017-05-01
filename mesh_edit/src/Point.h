@@ -10,12 +10,12 @@
 #define __facemeshTest__Point__
 
 #include <stdio.h>
-#include "vector3D.h"
+#include "../CGL/include/CGL/vector3D.h"
 
 class Point {
 public:
-    Point(Vector3D p);
-    Vector3D coordinates;
+    Point(CGL::Vector3D p);
+    CGL::Vector3D coordinates;
 };
 
 #endif

@@ -7,6 +7,7 @@
 using namespace std;
 
 //when we first call this consuctor, we will have an empty BBox so this constructor needs to
+//when we first call this consuctor, we will have an empty BBox so this constructor needs to
 OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox NodeBB, int maxDepth) {
 
   //if the depth is zero, expand the bbox etc but if not do other things
@@ -17,17 +18,17 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
 
   if (this->depth == 0 && this->depth != maxDepth) {
       for (int i = 0; i < points.size(); i++) {
-        NodeBB.expand(points[i].coordinates); //should expand the parent's bbox to include all points provide in our .ply.
-        this->nodePoints.push_back(points[i]);
+        this->NodeBB.expand(points[i].coordinates); //should expand the parent's bbox to include all points provide in our .ply.
     }
 
     this->Parent = nullptr;
 
   } else if (this->depth == maxDepth) {
     this->IsLeaf = true;
-    for (Point p : points) {
-        nodePoints.push_back(p);
-    }
+  }
+
+  for (int i = 0; i < points.size(); i++) {
+      this->nodePoints.push_back(points[i]);
   }
 
   this->Center = NodeBB.centroid();
@@ -41,7 +42,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
     vector<BBox> boxes = NodeBB.OctChildren();
     vector< vector<Point> > pnts(8); //vector of 8 vectors of points
 
-      for(int i = 0; i < points.size(); i++) {
+    for(int i = 0; i < points.size(); i++) {
       if (boxes[0].inside(points[i].coordinates)) {
         pnts[0].push_back(points[i]);
       } else if (boxes[1].inside(points[i].coordinates)) {
@@ -69,10 +70,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
     this->Children.push_back(OctreeNode(pnts[5], this->depth + 1, this, boxes[5], this->maxDepth));
     this->Children.push_back(OctreeNode(pnts[6], this->depth + 1, this, boxes[6], this->maxDepth));
     this->Children.push_back(OctreeNode(pnts[7], this->depth + 1, this, boxes[7], this->maxDepth));
-    
+
 
     }
   }
-
-
-
