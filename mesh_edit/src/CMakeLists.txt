@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 # Collada viewer source
 set(COLLADA_VIEWER_SOURCE
+    octree.cpp
     BBox.cpp
     Point.cpp
     pointcloud.cpp
@@ -24,6 +25,7 @@ set(COLLADA_VIEWER_SOURCE
 
 # Collada viewer header
 set(COLLADA_VIEWER_HEADER
+    octree.h
     BBox.h
     Point.h
     pointcloud.h    

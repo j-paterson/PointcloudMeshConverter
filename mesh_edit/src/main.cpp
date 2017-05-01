@@ -90,18 +90,11 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     //fscanf(file, "%d", &n);
 
     //pass in a BBOX that is constructed based on the sphere being made
-    BBox bb;
-    OctreeNode r(0, bb, 5);
-    PointCloud pc(10);
-    //pc. ???
-
-    //pc.loadMesh(mesh, )
-
-    //
-    pc.loadPoints(file);
-    pc.add2mesh(mesh);
-    //
-
+    BBox bb(Vector3D(-7, -7, -7), Vector3D(7, 7, 7)); //MAKE BBOX FOR SPHERE TEST
+    OctreeNode r(0, bb, 5); //CONSTRUCT FULL OCTREE
+    PointCloud pc(10); //make pointcloud for mesh constructin
+    Mesh mResult = marchingCubes(r, IndicatorFunction);
+    pc.loadMesh(mesh, mResult);
     //mergeVertices(mesh);
     fclose(file);
 
