@@ -351,7 +351,6 @@ int IndicatorFunction(CGL::Vector3D point)
 
 Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
-    printf("%s\n", "hi");
     Mesh * final_mesh = new Mesh;
     //checking to see if there are children for the current node
     if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
