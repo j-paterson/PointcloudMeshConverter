@@ -1,47 +1,5 @@
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/CMakeFiles/glew.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/uninstall.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/src/CMakeFiles/glfw.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/CMakeFiles/CGL.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/install/local.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/install/strip.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/install.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/list_install_components.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/rebuild_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/edit_cache.dir
-/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/src/CMakeFiles/meshedit.dir
+/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir
+/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glfw/CMakeFiles/uninstall.dir
+/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glfw/src/CMakeFiles/glfw.dir
+/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/src/CMakeFiles/CGL.dir
+/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir

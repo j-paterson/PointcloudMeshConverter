@@ -1,8 +1,8 @@
-# Install script for directory: /Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/CGL
+# Install script for directory: /Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/CGL")
+  set(CMAKE_INSTALL_PREFIX "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,9 +29,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glew/cmake_install.cmake")
-  include("/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/deps/glfw/cmake_install.cmake")
-  include("/Users/jpat/Documents/School/Junior2 (Spring, 2017)/CS184/proj2_meshedit/build/CGL/src/cmake_install.cmake")
+  include("/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/cmake_install.cmake")
+  include("/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glfw/cmake_install.cmake")
+  include("/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/src/cmake_install.cmake")
 
 endif()
 
