@@ -349,30 +349,34 @@ int IndicatorFunction(CGL::Vector3D point)
 }
 
 
-Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
+void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh)
 {
-    Mesh * final_mesh = new Mesh;
     //checking to see if there are children for the current node
     if(!currentNode.IsLeaf && currentNode.hasChildren){
         for(int i = 0; i<8; i++){
-            marchingCubes(currentNode.Children[i], IndicatorFunction);
+            marchingCubes(currentNode.Children[i], IndicatorFunction, final_mesh);
         }
     }else if(currentNode.IsLeaf){
         //we have hit a leaf node, calculate an index for the octree node's cube.
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3
+        int Tri_index=0;
         for (int i=0;triTable[index][i]!=-1;i+=3) {
-          Triangle * newTri = new Triangle;
-          //For each set of three edges, find and add the vertices to the triangle and mesh points
-          for(int j=0; j<3; j++){
-              newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
-              final_mesh->points.push_back(newTri->points[j]);
-          }
-          //Add the completed triangle to the mesh triangles.
-          final_mesh->triangles.push_back(*newTri);
-       }
+            Triangle * newTri = new Triangle;
+            //For each set of three edges, find and add the vertices to the triangle and mesh points
+            for(int j=0; j<3; j++){
+            newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
+            final_mesh->points.push_back(newTri->points[j]);
+            cout << "Added Triangle:";
+            cout << getEdgePoint(currentNode, triTable[index][i+j]) << endl;
+
+            }
+            //Add the completed triangle to the mesh triangles.
+            Tri_index++;
+            cout<<Tri_index<<endl;
+            final_mesh->triangles.push_back(*newTri);
+        }
     }
-    return *final_mesh;
 }
 
 //int edgeTable[256]={
