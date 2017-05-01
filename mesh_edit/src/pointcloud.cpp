@@ -49,5 +49,4 @@ namespace CGL {
         printf("loading points: %lf, %lf, %lf \n", points[j].x, points[j].y, points[j].z);
       }
   }
-
 }

@@ -1,6 +1,5 @@
 #include "octree.h"
 #include "bbox.h"
-#include "Point.h"
 #include <iostream>
 #include <vector>
 
@@ -73,26 +72,23 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
 
 
     }
+  }
 
-    OctreeNode(int depth, BBox NodeBB, OctreeNode *Parent, int maxDepth) {
+   OctreeNode::OctreeNode(int depth, BBox NodeBB, int maxDepth) {
       this->depth = depth;
       this->maxDepth = maxDepth;
       this->NodeBB = NodeBB;
-      this->Parent = Parent;
       this->Center = NodeBB.centroid();
 
       if (depth != maxDepth) {
         vector<BBox> boxes = NodeBB.OctChildren();
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[0], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[1], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[2], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[3], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[4], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[5], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[6], this->maxDepth));
-        this->Children.push_back(OctreeNode(this->depth + 1, this, boxes[7], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[0], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[1], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[2], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[3], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[4], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[5], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[6], this->maxDepth));
+        this->Children.push_back(OctreeNode(this->depth + 1, boxes[7], this->maxDepth));
       }
     }
-
-
-  }

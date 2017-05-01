@@ -1,7 +1,5 @@
 #include "bbox.h"
-
 #include "GL/glew.h"
-
 #include <algorithm>
 #include <iostream>
 #include "math.h"
