@@ -8,7 +8,7 @@ using namespace std;
 typedef int (* vFunctionCall)(Vector3D args);
 
 typedef struct {
-    vector<CGL::Vector3D> points;
+    vector<CGL::Vector3D> points= * new vector<CGL::Vector3D>();
 } Triangle;
 
 typedef struct{

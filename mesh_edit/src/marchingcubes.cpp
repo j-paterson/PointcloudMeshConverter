@@ -362,30 +362,28 @@ void printmesh(Mesh* mResult) {
 void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh)
 {
     //checking to see if there are children for the current node
-    cout<<"Got to here"<<endl;
-    cout<<currentNode.IsLeaf<<endl;
-    cout<<currentNode.hasChildren<<endl;
     if(!currentNode.IsLeaf && currentNode.hasChildren){
         for(int i = 0; i<8; i++){
-            cout<<"Moving down to children:";
-            cout<<currentNode.Children.size()<<endl;
             marchingCubes(currentNode.Children[i], IndicatorFunction, final_mesh);
         }
     }else if(currentNode.IsLeaf){
-        cout<<"Hit a leaf"<<endl;
         //we have hit a leaf node, calculate an index for the octree node's cube.
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3
         int Tri_index=0;
         for (int i=0;triTable[index][i]!=-1;i+=3) {
             Triangle * newTri = new Triangle;
+            cout<<newTri->points.size()<<endl;
             //For each set of three edges, find and add the vertices to the triangle and mesh points
             for(int j=0; j<3; j++){
-            newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
-            final_mesh->points.push_back(newTri->points[j]);
-            cout << "Added Triangle:";
-            cout << getEdgePoint(currentNode, triTable[index][i+j]) << endl;
-
+                cout<<newTri->points.size()<<endl;
+                cout << "Added Triangle:";
+                cout << getEdgePoint(currentNode, triTable[index][i+j]) << endl;
+                cout<<newTri->points.size()<<endl;
+                newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
+                cout<<newTri->points.size()<<endl;
+                final_mesh->points.push_back(newTri->points[j]);
+                cout<<final_mesh->points.size()<<endl;
             }
             //Add the completed triangle to the mesh triangles.
             Tri_index++;
