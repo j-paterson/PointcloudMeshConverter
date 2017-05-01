@@ -83,6 +83,14 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
       this->Center = NodeBB.centroid();
       this->hasChildren = false;
 
+      
+      if (depth == maxDepth) {
+        this->IsLeaf = true;
+      } else {
+        this->IsLeaf = false;
+      }
+
+
       if (depth != maxDepth) {
         vector<BBox> boxes = NodeBB.OctChildren();
         this->Children.push_back(OctreeNode(this->depth + 1, boxes[0], this->maxDepth));
