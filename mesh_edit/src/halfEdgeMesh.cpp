@@ -154,9 +154,7 @@ namespace CGL {
       // Next, we actually build the halfedge connectivity by again looping over polygons
       PolygonListCIter p;
       FaceIter f;
-      for( p = polygons.begin(), f = faces.begin();
-      p != polygons.end();
-      p++, f++ )
+      for( p = polygons.begin(), f = faces.begin(); p != polygons.end(); p++, f++ )
       {
         vector<HalfedgeIter> faceHalfedges; // cyclically ordered list of the half edges of this face
         Size degree = p->size(); // number of vertices in this polygon
@@ -168,6 +166,7 @@ namespace CGL {
           Index b = (*p)[(i+1)%degree]; // next index, in cyclic order
           IndexPair ab( a, b );
           HalfedgeIter hab;
+
 
           // check if this halfedge already exists; if so, we have a problem!
           if( pairToHalfedge.find( ab ) != pairToHalfedge.end() )

@@ -6,6 +6,7 @@
 #include "bezierCurve.h"
 #include "mergeVertices.h"
 #include "shaderUtils.h"
+#include "pointcloud.h"
 
 #include <iostream>
 
@@ -51,9 +52,41 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     node.instance = mesh;
     scene->nodes.push_back(node);
   }
-  else
+  else if (path_str.substr(path_str.length()-4, 4) == ".txt")
   {
-    return -1;
+    Camera* cam = new Camera();
+    cam->type = CAMERA;
+    Node node;
+    node.instance = cam;
+    scene->nodes.push_back(node);
+    Polymesh* mesh = new Polymesh();
+
+    FILE* file = fopen(path, "r");
+    int n = 0;
+    fscanf(file, "%d", &n);
+
+    PointCloud pc(n);
+    pc.loadPoints(file);
+    pc.add2mesh(mesh);
+    //mergeVertices(mesh);
+
+    //Figure out what is going on here and how we can populate the mesh ourselves.
+
+
+    /*
+    for (int i = 0; i < n; i++)
+    {
+      BezierPatch patch;
+      patch.loadControlPoints(file);
+      patch.add2mesh(mesh);
+      mergeVertices(mesh);
+    }
+    */
+    fclose(file);
+
+    mesh->type = POLYMESH;
+    node.instance = mesh;
+    scene->nodes.push_back(node);
   }
 
   collada_viewer->load( scene );

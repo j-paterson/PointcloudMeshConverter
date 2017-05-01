@@ -53,8 +53,7 @@ namespace CGL {
     {
       for(int j=0; j<4; j++)
       {
-        fscanf(file, "%lf %lf %lf", &controlPoints[i][j].x, &controlPoints[i][j].y,
-        &controlPoints[i][j].z);
+        fscanf(file, "%lf %lf %lf", &controlPoints[i][j].x, &controlPoints[i][j].y, &controlPoints[i][j].z);
       }
     }
   }
