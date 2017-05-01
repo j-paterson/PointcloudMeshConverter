@@ -353,7 +353,8 @@ Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
     Mesh * final_mesh = new Mesh;
     //checking to see if there are children for the current node
-    if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
+    if(!currentNode.IsLeaf && currentNode.hasChildren){
+        cout << "Got to here" <<endl;
         for(int i = 0; i<8; i++){
             marchingCubes(currentNode.Children[i], IndicatorFunction);
         }
