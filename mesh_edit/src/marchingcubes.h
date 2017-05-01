@@ -1,13 +1,20 @@
 #ifndef MARCHINGCUBES_H
 #define MARCHINGCUBES_H
+#include <vector>
+#include "Point.h"
+#include "octree.h"
+
+using namespace std;
+
+typedef int (* vFunctionCall)(Vector3D args);
 
 typedef struct {
-    vector<Vector3D> points;
+    vector<CGL::Vector3D> points;
 } Triangle;
 
 typedef struct{
   vector<Triangle> triangles;
-  vector<Vector3D> points;
+  vector<CGL::Vector3D> points;
   double price;
 } Mesh;
 

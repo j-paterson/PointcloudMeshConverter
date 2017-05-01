@@ -1,12 +1,12 @@
 #include "marchingcubes.h"
-#include "octree.h"
+#include <iostream>
+#include <vector>
 
-namespace CGL {
-
-typedef void (* vFunctionCall)(Vector3D args);
+using namespace std;
+using namespace CGL;
 
 /*
-    Calculate an index for the octree node's cube by checking the indicator function.
+    Calculate an index for the octree node's cube by checkng the indicator function.
     Using the index, look up the list of edges from a precalculated table.
     Using the densities at each edge vertex, find the surface edge intersection via linear interpolation.
     Calculate a unit normal at each cube vertex using central differences. Interpolate the normal to each triangle vertex.
@@ -16,127 +16,6 @@ typedef void (* vFunctionCall)(Vector3D args);
     http://paulbourke.net/geometry/polygonise/
     http://paulbourke.net/dataformats/ply/
 */
-
-Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
-{
-    Mesh final_mesh = new Mesh;
-    //checking to see if there are children for the current node
-    if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
-        for(int i = 0; i<8; i++){
-            marchingCubes(currentNode.Children[i], IndicatorFunction);
-        }
-    }else if(currentNode.IsLeaf){
-        //we have hit a leaf node, calculate an index for the octree node's cube.
-        unsigned char index = getIndex(currentNode, IndicatorFunction);
-        //Index into the tri table, which holds the edges intersected by triangles in sets of 3
-        for (i=0;triTable[index][i]!=-1;i+=3) {
-          Triangle newTri();
-          //For each set of three edges, find and add the vertices to the triangle and mesh points
-          for(j=0; j<3; j++){
-              newTri.points.add(getEdgePoint(currentNode, triTable[index][i+j]));
-              final_mesh.points.add(newTri.points[j]);
-          }
-          //Add the completed triangle to the mesh triangles.
-          final_mesh.triangles.add(Triangle);
-       }
-    }
-}
-
-Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
-    vector<Vector3D> corners = getCorners(currentNode);
-    Vector3D edgePoint1();
-    Vector3D edgePoint2();
-    if(edgeNum=0){
-        edgePoint1=corners[0];
-        edgePoint2=corners[1];
-    }else if(edgeNum=1){
-        edgePoint1=corners[1];
-        edgePoint2=corners[2];
-    }else if(edgeNum=2){
-        edgePoint1=corners[2];
-        edgePoint2=corners[3];
-    }else if(edgeNum=3){
-        edgePoint1=corners[3];
-        edgePoint2=corners[0];
-    }else if(edgeNum=4){
-        edgePoint1=corners[4];
-        edgePoint2=corners[5];
-    }else if(edgeNum=5){
-        edgePoint1=corners[5];
-        edgePoint2=corners[6];
-    }else if(edgeNum=6){
-        edgePoint1=corners[6];
-        edgePoint2=corners[7];
-    }else if(edgeNum=7){
-        edgePoint1=corners[7];
-        edgePoint2=corners[4];
-    }else if(edgeNum=8){
-        edgePoint1=corners[0];
-        edgePoint2=corners[4];
-    }else if(edgeNum=9){
-        edgePoint1=corners[1];
-        edgePoint2=corners[5];
-    }else if(edgeNum=10){
-        edgePoint1=corners[2];
-        edgePoint2=corners[6];
-    }else if(edgeNum=11){
-        edgePoint1=corners[3];
-        edgePoint2=corners[7];
-    }
-    return Vector3D(((edgePoint1.x+edgePoint2.x)/2),
-                    ((edgePoint1.y+edgePoint2.y)/2),
-                    ((edgePoint1.z+edgePoint2.z)/2));
-}
-
-unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
-{
-    unsigned char index=0;
-    //Get all corners of the current node and compute it's index in the edge table
-    vector<Vector3D> corners = getCorners(currentNode);
-    if (IndicatorFunction(corners[0])==1) index |=   1;
-    if (IndicatorFunction(corners[1])==1) index |=   2;
-    if (IndicatorFunction(corners[2])==1) index |=   4;
-    if (IndicatorFunction(corners[3])==1) index |=   8;
-    if (IndicatorFunction(corners[4])==1) index |=  16;
-    if (IndicatorFunction(corners[5])==1) index |=  32;
-    if (IndicatorFunction(corners[6])==1) index |=  64;
-    if (IndicatorFunction(corners[7])==1) index |= 128;
-    return index;
-}
-
-//int edgeTable[256]={
-//0x0  , 0x109, 0x203, 0x30a, 0x406, 0x50f, 0x605, 0x70c,
-//0x80c, 0x905, 0xa0f, 0xb06, 0xc0a, 0xd03, 0xe09, 0xf00,
-//0x190, 0x99 , 0x393, 0x29a, 0x596, 0x49f, 0x795, 0x69c,
-//0x99c, 0x895, 0xb9f, 0xa96, 0xd9a, 0xc93, 0xf99, 0xe90,
-//0x230, 0x339, 0x33 , 0x13a, 0x636, 0x73f, 0x435, 0x53c,
-//0xa3c, 0xb35, 0x83f, 0x936, 0xe3a, 0xf33, 0xc39, 0xd30,
-//0x3a0, 0x2a9, 0x1a3, 0xaa , 0x7a6, 0x6af, 0x5a5, 0x4ac,
-//0xbac, 0xaa5, 0x9af, 0x8a6, 0xfaa, 0xea3, 0xda9, 0xca0,
-//0x460, 0x569, 0x663, 0x76a, 0x66 , 0x16f, 0x265, 0x36c,
-//0xc6c, 0xd65, 0xe6f, 0xf66, 0x86a, 0x963, 0xa69, 0xb60,
-//0x5f0, 0x4f9, 0x7f3, 0x6fa, 0x1f6, 0xff , 0x3f5, 0x2fc,
-//0xdfc, 0xcf5, 0xfff, 0xef6, 0x9fa, 0x8f3, 0xbf9, 0xaf0,
-//0x650, 0x759, 0x453, 0x55a, 0x256, 0x35f, 0x55 , 0x15c,
-//0xe5c, 0xf55, 0xc5f, 0xd56, 0xa5a, 0xb53, 0x859, 0x950,
-//0x7c0, 0x6c9, 0x5c3, 0x4ca, 0x3c6, 0x2cf, 0x1c5, 0xcc ,
-//0xfcc, 0xec5, 0xdcf, 0xcc6, 0xbca, 0xac3, 0x9c9, 0x8c0,
-//0x8c0, 0x9c9, 0xac3, 0xbca, 0xcc6, 0xdcf, 0xec5, 0xfcc,
-//0xcc , 0x1c5, 0x2cf, 0x3c6, 0x4ca, 0x5c3, 0x6c9, 0x7c0,
-//0x950, 0x859, 0xb53, 0xa5a, 0xd56, 0xc5f, 0xf55, 0xe5c,
-//0x15c, 0x55 , 0x35f, 0x256, 0x55a, 0x453, 0x759, 0x650,
-//0xaf0, 0xbf9, 0x8f3, 0x9fa, 0xef6, 0xfff, 0xcf5, 0xdfc,
-//0x2fc, 0x3f5, 0xff , 0x1f6, 0x6fa, 0x7f3, 0x4f9, 0x5f0,
-//0xb60, 0xa69, 0x963, 0x86a, 0xf66, 0xe6f, 0xd65, 0xc6c,
-//0x36c, 0x265, 0x16f, 0x66 , 0x76a, 0x663, 0x569, 0x460,
-//0xca0, 0xda9, 0xea3, 0xfaa, 0x8a6, 0x9af, 0xaa5, 0xbac,
-//0x4ac, 0x5a5, 0x6af, 0x7a6, 0xaa , 0x1a3, 0x2a9, 0x3a0,
-//0xd30, 0xc39, 0xf33, 0xe3a, 0x936, 0x83f, 0xb35, 0xa3c,
-//0x53c, 0x435, 0x73f, 0x636, 0x13a, 0x33 , 0x339, 0x230,
-//0xe90, 0xf99, 0xc93, 0xd9a, 0xa96, 0xb9f, 0x895, 0x99c,
-//0x69c, 0x795, 0x49f, 0x596, 0x29a, 0x393, 0x99 , 0x190,
-//0xf00, 0xe09, 0xd03, 0xc0a, 0xb06, 0xa0f, 0x905, 0x80c,
-//0x70c, 0x605, 0x50f, 0x406, 0x30a, 0x203, 0x109, 0x0};
 
 int triTable[256][16] =
 {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -396,10 +275,71 @@ int triTable[256][16] =
 {0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}};
 
+Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
+    vector<Vector3D> corners = currentNode.NodeBB.getCorners();
+    Vector3D * edgePoint1 = new Vector3D;
+    Vector3D * edgePoint2 = new Vector3D;
+    if(edgeNum==0){
+        edgePoint1=&corners[0];
+        edgePoint2=&corners[1];
+    }else if(edgeNum==1){
+        edgePoint1=&corners[1];
+        edgePoint2=&corners[2];
+    }else if(edgeNum==2){
+        edgePoint1=&corners[2];
+        edgePoint2=&corners[3];
+    }else if(edgeNum==3){
+        edgePoint1=&corners[3];
+        edgePoint2=&corners[0];
+    }else if(edgeNum==4){
+        edgePoint1=&corners[4];
+        edgePoint2=&corners[5];
+    }else if(edgeNum==5){
+        edgePoint1=&corners[5];
+        edgePoint2=&corners[6];
+    }else if(edgeNum==6){
+        edgePoint1=&corners[6];
+        edgePoint2=&corners[7];
+    }else if(edgeNum==7){
+        edgePoint1=&corners[7];
+        edgePoint2=&corners[4];
+    }else if(edgeNum==8){
+        edgePoint1=&corners[0];
+        edgePoint2=&corners[4];
+    }else if(edgeNum==9){
+        edgePoint1=&corners[1];
+        edgePoint2=&corners[5];
+    }else if(edgeNum==10){
+        edgePoint1=&corners[2];
+        edgePoint2=&corners[6];
+    }else if(edgeNum==11){
+        edgePoint1=&corners[3];
+        edgePoint2=&corners[7];
+    }
+    return Vector3D(((edgePoint1->x+edgePoint2->x)/2),
+                    ((edgePoint1->y+edgePoint2->y)/2),
+                    ((edgePoint1->z+edgePoint2->z)/2));
+}
 
-int IndicatorFunction(Vector3D point)
+unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
-    Vector3D center(0,0,0);
+    unsigned char index=0;
+    //Get all corners of the current node and compute it's index in the edge table
+    vector<Vector3D> corners = currentNode.NodeBB.getCorners();
+    if (IndicatorFunction(corners[0])==1) index |=   1;
+    if (IndicatorFunction(corners[1])==1) index |=   2;
+    if (IndicatorFunction(corners[2])==1) index |=   4;
+    if (IndicatorFunction(corners[3])==1) index |=   8;
+    if (IndicatorFunction(corners[4])==1) index |=  16;
+    if (IndicatorFunction(corners[5])==1) index |=  32;
+    if (IndicatorFunction(corners[6])==1) index |=  64;
+    if (IndicatorFunction(corners[7])==1) index |= 128;
+    return index;
+}
+
+int IndicatorFunction(CGL::Vector3D point)
+{
+    CGL::Vector3D center(0,0,0);
     double radius = 10;
      if(pow((point.x - center.x),2) + pow((point.y - center.y),2) + pow((point.z - center.z),2) <= (radius*radius)){
          return 1;
@@ -407,3 +347,67 @@ int IndicatorFunction(Vector3D point)
          return 0;
      }
 }
+
+
+Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction)
+{
+    Mesh * final_mesh = new Mesh;
+    //checking to see if there are children for the current node
+    if(!currentNode.IsLeaf && currentNode.nodePoints.size()!=0){
+        for(int i = 0; i<8; i++){
+            marchingCubes(currentNode.Children[i], IndicatorFunction);
+        }
+    }else if(currentNode.IsLeaf){
+        //we have hit a leaf node, calculate an index for the octree node's cube.
+        unsigned char index = getIndex(currentNode, IndicatorFunction);
+        //Index into the tri table, which holds the edges intersected by triangles in sets of 3
+        for (int i=0;triTable[index][i]!=-1;i+=3) {
+          Triangle * newTri = new Triangle;
+          //For each set of three edges, find and add the vertices to the triangle and mesh points
+          for(int j=0; j<3; j++){
+              newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
+              final_mesh->points.push_back(newTri->points[j]);
+          }
+          //Add the completed triangle to the mesh triangles.
+          final_mesh->triangles.push_back(*newTri);
+       }
+    }
+    return *final_mesh;
+}
+
+
+//int edgeTable[256]={
+//0x0  , 0x109, 0x203, 0x30a, 0x406, 0x50f, 0x605, 0x70c,
+//0x80c, 0x905, 0xa0f, 0xb06, 0xc0a, 0xd03, 0xe09, 0xf00,
+//0x190, 0x99 , 0x393, 0x29a, 0x596, 0x49f, 0x795, 0x69c,
+//0x99c, 0x895, 0xb9f, 0xa96, 0xd9a, 0xc93, 0xf99, 0xe90,
+//0x230, 0x339, 0x33 , 0x13a, 0x636, 0x73f, 0x435, 0x53c,
+//0xa3c, 0xb35, 0x83f, 0x936, 0xe3a, 0xf33, 0xc39, 0xd30,
+//0x3a0, 0x2a9, 0x1a3, 0xaa , 0x7a6, 0x6af, 0x5a5, 0x4ac,
+//0xbac, 0xaa5, 0x9af, 0x8a6, 0xfaa, 0xea3, 0xda9, 0xca0,
+//0x460, 0x569, 0x663, 0x76a, 0x66 , 0x16f, 0x265, 0x36c,
+//0xc6c, 0xd65, 0xe6f, 0xf66, 0x86a, 0x963, 0xa69, 0xb60,
+//0x5f0, 0x4f9, 0x7f3, 0x6fa, 0x1f6, 0xff , 0x3f5, 0x2fc,
+//0xdfc, 0xcf5, 0xfff, 0xef6, 0x9fa, 0x8f3, 0xbf9, 0xaf0,
+//0x650, 0x759, 0x453, 0x55a, 0x256, 0x35f, 0x55 , 0x15c,
+//0xe5c, 0xf55, 0xc5f, 0xd56, 0xa5a, 0xb53, 0x859, 0x950,
+//0x7c0, 0x6c9, 0x5c3, 0x4ca, 0x3c6, 0x2cf, 0x1c5, 0xcc ,
+//0xfcc, 0xec5, 0xdcf, 0xcc6, 0xbca, 0xac3, 0x9c9, 0x8c0,
+//0x8c0, 0x9c9, 0xac3, 0xbca, 0xcc6, 0xdcf, 0xec5, 0xfcc,
+//0xcc , 0x1c5, 0x2cf, 0x3c6, 0x4ca, 0x5c3, 0x6c9, 0x7c0,
+//0x950, 0x859, 0xb53, 0xa5a, 0xd56, 0xc5f, 0xf55, 0xe5c,
+//0x15c, 0x55 , 0x35f, 0x256, 0x55a, 0x453, 0x759, 0x650,
+//0xaf0, 0xbf9, 0x8f3, 0x9fa, 0xef6, 0xfff, 0xcf5, 0xdfc,
+//0x2fc, 0x3f5, 0xff , 0x1f6, 0x6fa, 0x7f3, 0x4f9, 0x5f0,
+//0xb60, 0xa69, 0x963, 0x86a, 0xf66, 0xe6f, 0xd65, 0xc6c,
+//0x36c, 0x265, 0x16f, 0x66 , 0x76a, 0x663, 0x569, 0x460,
+//0xca0, 0xda9, 0xea3, 0xfaa, 0x8a6, 0x9af, 0xaa5, 0xbac,
+//0x4ac, 0x5a5, 0x6af, 0x7a6, 0xaa , 0x1a3, 0x2a9, 0x3a0,
+//0xd30, 0xc39, 0xf33, 0xe3a, 0x936, 0x83f, 0xb35, 0xa3c,
+//0x53c, 0x435, 0x73f, 0x636, 0x13a, 0x33 , 0x339, 0x230,
+//0xe90, 0xf99, 0xc93, 0xd9a, 0xa96, 0xb9f, 0x895, 0x99c,
+//0x69c, 0x795, 0x49f, 0x596, 0x29a, 0x393, 0x99 , 0x190,
+//0xf00, 0xe09, 0xd03, 0xc0a, 0xb06, 0xa0f, 0x905, 0x80c,
+//0x70c, 0x605, 0x50f, 0x406, 0x30a, 0x203, 0x109, 0x0};
+
+
