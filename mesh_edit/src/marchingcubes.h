@@ -17,7 +17,7 @@ typedef struct{
   double price;
 } Mesh;
 
-Mesh marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction);
+void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh);
 int IndicatorFunction(CGL::Vector3D point);
 
 #endif // MARCHINGCUBES_H

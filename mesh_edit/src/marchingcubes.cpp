@@ -348,6 +348,16 @@ int IndicatorFunction(CGL::Vector3D point)
      }
 }
 
+void printmesh(Mesh* mResult) {
+  for (int i = 0; i < mResult->triangles.size(); i++) {
+    printf("v1: %f %f %f \n v2: %f %f %f \n v3: %f %f %f ",
+    mResult->triangles[i].points[0].x, mResult->triangles[i].points[0].y, mResult->triangles[i].points[0].z,
+    mResult->triangles[i].points[1].x, mResult->triangles[i].points[1].y, mResult->triangles[i].points[1].z,
+    mResult->triangles[i].points[2].x, mResult->triangles[i].points[2].y, mResult->triangles[i].points[2].z);
+  }
+
+}
+
 
 void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh)
 {
@@ -377,6 +387,8 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
             final_mesh->triangles.push_back(*newTri);
         }
     }
+
+    printmesh(final_mesh);
 }
 
 //int edgeTable[256]={
