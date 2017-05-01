@@ -1,8 +1,8 @@
-# Install script for directory: /Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit
+# Install script for directory: /Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/")
+  set(CMAKE_INSTALL_PREFIX "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,8 +29,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/cmake_install.cmake")
-  include("/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/cmake_install.cmake")
+  include("/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/CGL/cmake_install.cmake")
+  include("/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/src/cmake_install.cmake")
 
 endif()
 
@@ -42,5 +42,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

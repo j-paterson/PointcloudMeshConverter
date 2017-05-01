@@ -1,4 +1,4 @@
-# Install script for directory: /Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src
+# Install script for directory: /Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,23 +27,20 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/meshedit")
+   "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/meshedit")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit" TYPE EXECUTABLE FILES "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/meshedit")
-  if(EXISTS "$ENV{DESTDIR}/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/meshedit" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/meshedit")
-    execute_process(COMMAND /usr/bin/install_name_tool
-      -delete_rpath "/Users/BryceSchmidtchen/anaconda3/lib"
-      "$ENV{DESTDIR}/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/meshedit")
+file(INSTALL DESTINATION "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit" TYPE EXECUTABLE FILES "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/meshedit")
+  if(EXISTS "$ENV{DESTDIR}/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/meshedit" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/meshedit")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/meshedit")
+      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/meshedit")
     endif()
   endif()
 endif()

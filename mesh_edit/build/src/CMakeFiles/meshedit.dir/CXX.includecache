@@ -204,27 +204,35 @@ GL/glext.h
 GL/glu.h
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL/include/CGL/vector3D.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/CGL/include/CGL/vector3D.h
 ostream
 -
 cmath
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/Point.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/Point.cpp
 Point.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/Point.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/Point.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/Point.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/Point.h
 stdio.h
 -
 ../CGL/include/CGL/vector3D.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL/include/CGL/vector3D.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/CGL/include/CGL/vector3D.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bbox.h
+utility
+-
+algorithm
+-
+CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
+
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierCurve.cpp
 bezierCurve.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierCurve.h
 CGL/misc.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/misc.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/misc.h
 unordered_map
 -
 unordered_set
@@ -232,37 +240,37 @@ unordered_set
 iostream
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierCurve.h
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 CGL/renderer.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/renderer.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/renderer.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierPatch.cpp
 bezierPatch.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierPatch.h
 unordered_map
 -
 unordered_set
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierPatch.h
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/camera.cpp
 camera.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/camera.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/camera.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/collada.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/collada.cpp
 collada.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/collada.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/collada.h
 assert.h
 -
 map
@@ -280,31 +288,31 @@ iostream
 algorithm
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/collada.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/collada.h
 string
 -
 vector
 -
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 CGL/tinyxml2.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/tinyxml2.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/tinyxml2.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 camera.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/camera.h
 light.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/light.h
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 material.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/halfEdgeMesh.cpp
 halfEdgeMesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/halfEdgeMesh.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/halfEdgeMesh.h
 set
 -
 map
@@ -318,95 +326,111 @@ utility
 iostream
 -
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/light.cpp
 light.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/light.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/light.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/main.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/main.cpp
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 collada.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/collada.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/collada.h
 meshEdit.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/meshEdit.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/meshEdit.h
 bezierPatch.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierPatch.h
 bezierCurve.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierCurve.h
 mergeVertices.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mergeVertices.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mergeVertices.h
 shaderUtils.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/shaderUtils.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/shaderUtils.h
 pointcloud.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/pointcloud.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/pointcloud.h
 iostream
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/marchingcubes.cpp
+marchingcubes.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/marchingcubes.h
+iostream
+-
+vector
+-
+
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/marchingcubes.h
+vector
+-
+Point.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/Point.h
+octree.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/octree.h
+
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.cpp
 material.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 texture.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/texture.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/texture.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mergeVertices.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mergeVertices.h
 unordered_map
 -
 unordered_set
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.cpp
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 material.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/meshEdit.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/meshEdit.cpp
 meshEdit.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/meshEdit.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/meshEdit.h
 shaderUtils.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/shaderUtils.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/shaderUtils.h
 GL/glew.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/GL/glew.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/GL/glew.h
 cmath
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/meshEdit.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/meshEdit.h
 string
 -
 vector
 -
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 camera.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/camera.h
 light.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/light.h
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 material.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/material.h
 halfEdgeMesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/halfEdgeMesh.h
 student_code.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/student_code.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/student_code.h
 string
 -
 iostream
@@ -416,11 +440,19 @@ sstream
 algorithm
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mutablePriorityQueue.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mutablePriorityQueue.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/png.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/octree.h
+bbox.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bbox.h
+Point.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/Point.h
+vector
+-
+
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/png.cpp
 png.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/png.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/png.h
 fstream
 -
 sstream
@@ -428,31 +460,31 @@ sstream
 iostream
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/png.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/png.h
 map
 -
 vector
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/pointcloud.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/pointcloud.cpp
 pointcloud.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/pointcloud.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/pointcloud.h
 unordered_map
 -
 unordered_set
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/pointcloud.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/pointcloud.h
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 mesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mesh.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.cpp
 scene.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/scene.h
 string
 -
 vector
@@ -460,9 +492,9 @@ vector
 iostream
 -
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/shaderUtils.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/shaderUtils.h
 GL/glew.h
 -
 OpenGL/gl.h
@@ -482,25 +514,25 @@ iostream
 vector
 -
 png.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/png.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/png.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/student_code.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/student_code.cpp
 student_code.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/student_code.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/student_code.h
 mutablePriorityQueue.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mutablePriorityQueue.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/mutablePriorityQueue.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/student_code.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/student_code.h
 halfEdgeMesh.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/halfEdgeMesh.h
 bezierPatch.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierPatch.h
 bezierCurve.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/bezierCurve.h
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/texture.cpp
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/texture.cpp
 texture.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/texture.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/texture.h
 assert.h
 -
 iostream
@@ -508,7 +540,7 @@ iostream
 algorithm
 -
 
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/texture.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/texture.h
 CGL/CGL.h
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/CGL/CGL.h
+/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/src/CGL/CGL.h
 

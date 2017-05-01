@@ -6,8 +6,6 @@
 
 #include "CGL/CGL.h"
 
-#include "ray.h"
-
 namespace CGL {
 
 /**
@@ -147,7 +145,7 @@ namespace CGL {
      return children;
    }
 
-   vector<CGL::Vector3D> getCorners() {
+   std::vector<CGL::Vector3D> getCorners() {
        std::vector<CGL::Vector3D> corners;
        //BBox(const double minX, const double minY, const double minZ, const double maxX, const double maxY, const double maxZ)
 

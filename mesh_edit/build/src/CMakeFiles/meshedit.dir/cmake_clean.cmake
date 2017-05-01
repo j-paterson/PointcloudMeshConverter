@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/meshedit.dir/Point.cpp.o"
   "CMakeFiles/meshedit.dir/pointcloud.cpp.o"
+  "CMakeFiles/meshedit.dir/marchingcubes.cpp.o"
   "CMakeFiles/meshedit.dir/bezierPatch.cpp.o"
   "CMakeFiles/meshedit.dir/bezierCurve.cpp.o"
   "CMakeFiles/meshedit.dir/scene.cpp.o"

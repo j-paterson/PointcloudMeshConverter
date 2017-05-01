@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL/deps/glew/src/glew.c" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/glew.c.o"
-  "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL/deps/glew/src/glewinfo.c" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/glewinfo.c.o"
-  "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/CGL/deps/glew/src/visualinfo.c" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/visualinfo.c.o"
+  "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/CGL/deps/glew/src/glew.c" "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/glew.c.o"
+  "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/CGL/deps/glew/src/glewinfo.c" "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/glewinfo.c.o"
+  "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/CGL/deps/glew/src/visualinfo.c" "/Users/jpat/Documents/School/Junior2/CS184/final_proj/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir/src/visualinfo.c.o"
   )
 set(CMAKE_C_COMPILER_ID "Clang")
 

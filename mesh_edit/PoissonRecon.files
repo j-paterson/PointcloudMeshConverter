@@ -141,10 +141,12 @@ CGL/src/viewer.cpp
 CGL/src/viewer.h
 CGL/tests/osd.cpp
 build/CGL/deps/glfw/src/glfw_config.h
-build/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c
-build/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
+build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c
+build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
 build/CMakeFiles/feature_tests.c
 build/CMakeFiles/feature_tests.cxx
+src/Point.cpp
+src/Point.h
 src/bbox.cpp
 src/bbox.h
 src/bezierCurve.cpp
@@ -174,6 +176,8 @@ src/octree.cpp
 src/octree.h
 src/png.cpp
 src/png.h
+src/pointcloud.cpp
+src/pointcloud.h
 src/scene.cpp
 src/scene.h
 src/shaderUtils.h
