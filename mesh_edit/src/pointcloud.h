@@ -17,4 +17,4 @@ namespace CGL {
   };
 
 }
-#endif	/* BEZIERPATCH_H */
+#endif
