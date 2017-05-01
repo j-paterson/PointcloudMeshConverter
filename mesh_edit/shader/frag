@@ -1,0 +1,81 @@
+uniform int outputID;
+uniform vec3 eyePos;
+varying vec3 normal;
+varying vec3 vertex;
+
+#define PI 3.1415926
+
+vec3 shadeDiffuseFromEye();
+
+vec3 shadePhong(vec3 lightPos);
+
+vec3 shadeEnvmapReflection();
+
+void main()
+{
+    if(outputID == 0)
+    {
+        gl_FragColor = vec4(shadeDiffuseFromEye(), 1.0);
+        return;
+    }
+    if(outputID == 1)
+    {
+        gl_FragColor = vec4(shadePhong(vec3(10, 10, 10)), 1.0);
+        return;
+    }
+    if(outputID == 2)
+    {
+        // Do something interesting here for extra credit.
+        // gl_FragColor = vec4(???, 1.0);
+        // return;
+    }
+}
+
+vec3 shadeDiffuseFromEye()
+{
+    vec3 n = normalize(normal);
+    vec3 out_vec = normalize(eyePos - vertex);
+    float diffuse = abs(dot(out_vec, n));
+    return vec3(diffuse);
+}
+
+vec3 shadePhong(vec3 lightPos)
+{
+    // TODO Part 7.
+    // Compute Phong shading here. You can choose any color you like. But make
+    // sure that you have noticeable specular highlights in the shading.
+    // Variables to use: eyePos, lightPos, normal, vertex
+
+    // Phong Shading = Combination of Ambient, Diffuse and Specular
+    float I = 1.0;
+    float p = 16.0;
+    float k_a = 0.2;
+    float k_d = 0.5;
+    float k_s = 0.5;
+    vec3 color = vec3(0.8, 0.2, 0.3);
+    vec3 specularcolor = vec3(1, 1, 1);
+    vec3 ambient = vec3(0.1, 0.1, 0.1);
+    vec3 diffuse = vec3(0.0, 0.0, 0.0);
+    vec3 specular = vec3(0.0, 0.0, 0.0);
+
+    //Ambient
+    //L_a=k_a*I_a
+    ambient=color*ambient*k_a;
+
+    //Diffuse
+    vec3 n = normalize(normal);
+    vec3 l = normalize(lightPos - vertex);
+    float diffuseDot = abs(dot(n, l));
+    float r = length(l);
+
+    diffuse+=color*(k_d*(I/(pow(r,2.0))))*clamp(diffuseDot, 0.0, 1.0);
+
+    //Specular
+    vec3 v = normalize(eyePos - vertex);
+    vec3 h = normalize((v+l)/abs(v+l));
+    float specularDot = abs(dot(n, h));
+    specular+=specularcolor*(k_s*(I/(pow(r,2.0))))*pow(clamp(specularDot, 0.0, 1.0), p);
+
+    vec3 phong = ambient+diffuse+specular;
+    return phong;
+}
