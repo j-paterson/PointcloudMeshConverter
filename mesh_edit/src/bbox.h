@@ -6,9 +6,12 @@
 
 #include "CGL/CGL.h"
 
-#include "ray.h"
+//#include "ray.h"
 
-namespace CGL {
+using namespace CGL;
+using namespace std;
+
+//namespace CGL {
 
 /**
  * Axis-aligned bounding box.
@@ -203,11 +206,11 @@ namespace CGL {
     * Draw box wireframe with OpenGL.
     * \param c color of the wireframe
     */
-   //void draw(Color c) const;
+   void draw(Color c) const;
  };
 
 std::ostream& operator<<(std::ostream& os, const BBox& b);
 
-} // namespace CGL
+ // namespace CGL
 
 #endif // CGL_BBOX_H

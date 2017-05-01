@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/BBox.cpp" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir/BBox.cpp.o"
   "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/Point.cpp" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir/Point.cpp.o"
   "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.cpp" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o"
   "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.cpp" "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o"

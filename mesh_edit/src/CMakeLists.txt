@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 # Collada viewer source
 set(COLLADA_VIEWER_SOURCE
+    BBox.cpp
     Point.cpp
     pointcloud.cpp	    
     bezierPatch.cpp
@@ -22,6 +23,7 @@ set(COLLADA_VIEWER_SOURCE
 
 # Collada viewer header
 set(COLLADA_VIEWER_HEADER
+    BBox.h
     Point.h
     pointcloud.h    
     bezierPatch.h

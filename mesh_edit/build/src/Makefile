@@ -169,6 +169,33 @@ meshedit/fast:
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build" && $(MAKE) -f src/CMakeFiles/meshedit.dir/build.make src/CMakeFiles/meshedit.dir/build
 .PHONY : meshedit/fast
 
+BBox.o: BBox.cpp.o
+
+.PHONY : BBox.o
+
+# target to build an object file
+BBox.cpp.o:
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build" && $(MAKE) -f src/CMakeFiles/meshedit.dir/build.make src/CMakeFiles/meshedit.dir/BBox.cpp.o
+.PHONY : BBox.cpp.o
+
+BBox.i: BBox.cpp.i
+
+.PHONY : BBox.i
+
+# target to preprocess a source file
+BBox.cpp.i:
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build" && $(MAKE) -f src/CMakeFiles/meshedit.dir/build.make src/CMakeFiles/meshedit.dir/BBox.cpp.i
+.PHONY : BBox.cpp.i
+
+BBox.s: BBox.cpp.s
+
+.PHONY : BBox.s
+
+# target to generate assembly for a file
+BBox.cpp.s:
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build" && $(MAKE) -f src/CMakeFiles/meshedit.dir/build.make src/CMakeFiles/meshedit.dir/BBox.cpp.s
+.PHONY : BBox.cpp.s
+
 Point.o: Point.cpp.o
 
 .PHONY : Point.o
@@ -614,6 +641,9 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... meshedit"
+	@echo "... BBox.o"
+	@echo "... BBox.i"
+	@echo "... BBox.s"
 	@echo "... Point.o"
 	@echo "... Point.i"
 	@echo "... Point.s"

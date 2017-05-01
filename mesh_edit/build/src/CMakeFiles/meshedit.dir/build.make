@@ -57,9 +57,33 @@ include src/CMakeFiles/meshedit.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/meshedit.dir/flags.make
 
+src/CMakeFiles/meshedit.dir/BBox.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
+src/CMakeFiles/meshedit.dir/BBox.cpp.o: ../src/BBox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/meshedit.dir/BBox.cpp.o"
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/BBox.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/BBox.cpp"
+
+src/CMakeFiles/meshedit.dir/BBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meshedit.dir/BBox.cpp.i"
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/BBox.cpp" > CMakeFiles/meshedit.dir/BBox.cpp.i
+
+src/CMakeFiles/meshedit.dir/BBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meshedit.dir/BBox.cpp.s"
+	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/BBox.cpp" -o CMakeFiles/meshedit.dir/BBox.cpp.s
+
+src/CMakeFiles/meshedit.dir/BBox.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/meshedit.dir/BBox.cpp.o.requires
+
+src/CMakeFiles/meshedit.dir/BBox.cpp.o.provides: src/CMakeFiles/meshedit.dir/BBox.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/meshedit.dir/build.make src/CMakeFiles/meshedit.dir/BBox.cpp.o.provides.build
+.PHONY : src/CMakeFiles/meshedit.dir/BBox.cpp.o.provides
+
+src/CMakeFiles/meshedit.dir/BBox.cpp.o.provides.build: src/CMakeFiles/meshedit.dir/BBox.cpp.o
+
+
 src/CMakeFiles/meshedit.dir/Point.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/Point.cpp.o: ../src/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/meshedit.dir/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/meshedit.dir/Point.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/Point.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/Point.cpp"
 
 src/CMakeFiles/meshedit.dir/Point.cpp.i: cmake_force
@@ -83,7 +107,7 @@ src/CMakeFiles/meshedit.dir/Point.cpp.o.provides.build: src/CMakeFiles/meshedit.
 
 src/CMakeFiles/meshedit.dir/pointcloud.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/pointcloud.cpp.o: ../src/pointcloud.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/meshedit.dir/pointcloud.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/meshedit.dir/pointcloud.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/pointcloud.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/pointcloud.cpp"
 
 src/CMakeFiles/meshedit.dir/pointcloud.cpp.i: cmake_force
@@ -107,7 +131,7 @@ src/CMakeFiles/meshedit.dir/pointcloud.cpp.o.provides.build: src/CMakeFiles/mesh
 
 src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o: ../src/bezierPatch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/bezierPatch.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierPatch.cpp"
 
 src/CMakeFiles/meshedit.dir/bezierPatch.cpp.i: cmake_force
@@ -131,7 +155,7 @@ src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o.provides.build: src/CMakeFiles/mes
 
 src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o: ../src/bezierCurve.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/bezierCurve.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/bezierCurve.cpp"
 
 src/CMakeFiles/meshedit.dir/bezierCurve.cpp.i: cmake_force
@@ -155,7 +179,7 @@ src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o.provides.build: src/CMakeFiles/mes
 
 src/CMakeFiles/meshedit.dir/scene.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/scene.cpp.o: ../src/scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/meshedit.dir/scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/meshedit.dir/scene.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/scene.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/scene.cpp"
 
 src/CMakeFiles/meshedit.dir/scene.cpp.i: cmake_force
@@ -179,7 +203,7 @@ src/CMakeFiles/meshedit.dir/scene.cpp.o.provides.build: src/CMakeFiles/meshedit.
 
 src/CMakeFiles/meshedit.dir/camera.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/camera.cpp.o: ../src/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/meshedit.dir/camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/meshedit.dir/camera.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/camera.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/camera.cpp"
 
 src/CMakeFiles/meshedit.dir/camera.cpp.i: cmake_force
@@ -203,7 +227,7 @@ src/CMakeFiles/meshedit.dir/camera.cpp.o.provides.build: src/CMakeFiles/meshedit
 
 src/CMakeFiles/meshedit.dir/light.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/light.cpp.o: ../src/light.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/meshedit.dir/light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/meshedit.dir/light.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/light.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/light.cpp"
 
 src/CMakeFiles/meshedit.dir/light.cpp.i: cmake_force
@@ -227,7 +251,7 @@ src/CMakeFiles/meshedit.dir/light.cpp.o.provides.build: src/CMakeFiles/meshedit.
 
 src/CMakeFiles/meshedit.dir/mesh.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/mesh.cpp.o: ../src/mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/meshedit.dir/mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/meshedit.dir/mesh.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/mesh.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/mesh.cpp"
 
 src/CMakeFiles/meshedit.dir/mesh.cpp.i: cmake_force
@@ -251,7 +275,7 @@ src/CMakeFiles/meshedit.dir/mesh.cpp.o.provides.build: src/CMakeFiles/meshedit.d
 
 src/CMakeFiles/meshedit.dir/material.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/material.cpp.o: ../src/material.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/meshedit.dir/material.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/meshedit.dir/material.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/material.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/material.cpp"
 
 src/CMakeFiles/meshedit.dir/material.cpp.i: cmake_force
@@ -275,7 +299,7 @@ src/CMakeFiles/meshedit.dir/material.cpp.o.provides.build: src/CMakeFiles/meshed
 
 src/CMakeFiles/meshedit.dir/texture.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/texture.cpp.o: ../src/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/meshedit.dir/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/meshedit.dir/texture.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/texture.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/texture.cpp"
 
 src/CMakeFiles/meshedit.dir/texture.cpp.i: cmake_force
@@ -299,7 +323,7 @@ src/CMakeFiles/meshedit.dir/texture.cpp.o.provides.build: src/CMakeFiles/meshedi
 
 src/CMakeFiles/meshedit.dir/collada.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/collada.cpp.o: ../src/collada.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/meshedit.dir/collada.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/meshedit.dir/collada.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/collada.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/collada.cpp"
 
 src/CMakeFiles/meshedit.dir/collada.cpp.i: cmake_force
@@ -323,7 +347,7 @@ src/CMakeFiles/meshedit.dir/collada.cpp.o.provides.build: src/CMakeFiles/meshedi
 
 src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o: ../src/halfEdgeMesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/halfEdgeMesh.cpp"
 
 src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.i: cmake_force
@@ -347,7 +371,7 @@ src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o.provides.build: src/CMakeFiles/me
 
 src/CMakeFiles/meshedit.dir/student_code.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/student_code.cpp.o: ../src/student_code.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/meshedit.dir/student_code.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/meshedit.dir/student_code.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/student_code.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/student_code.cpp"
 
 src/CMakeFiles/meshedit.dir/student_code.cpp.i: cmake_force
@@ -371,7 +395,7 @@ src/CMakeFiles/meshedit.dir/student_code.cpp.o.provides.build: src/CMakeFiles/me
 
 src/CMakeFiles/meshedit.dir/meshEdit.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/meshEdit.cpp.o: ../src/meshEdit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/meshedit.dir/meshEdit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/meshedit.dir/meshEdit.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/meshEdit.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/meshEdit.cpp"
 
 src/CMakeFiles/meshedit.dir/meshEdit.cpp.i: cmake_force
@@ -395,7 +419,7 @@ src/CMakeFiles/meshedit.dir/meshEdit.cpp.o.provides.build: src/CMakeFiles/meshed
 
 src/CMakeFiles/meshedit.dir/main.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/meshedit.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/meshedit.dir/main.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/main.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/main.cpp"
 
 src/CMakeFiles/meshedit.dir/main.cpp.i: cmake_force
@@ -419,7 +443,7 @@ src/CMakeFiles/meshedit.dir/main.cpp.o.provides.build: src/CMakeFiles/meshedit.d
 
 src/CMakeFiles/meshedit.dir/png.cpp.o: src/CMakeFiles/meshedit.dir/flags.make
 src/CMakeFiles/meshedit.dir/png.cpp.o: ../src/png.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/meshedit.dir/png.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/meshedit.dir/png.cpp.o"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meshedit.dir/png.cpp.o -c "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/src/png.cpp"
 
 src/CMakeFiles/meshedit.dir/png.cpp.i: cmake_force
@@ -443,6 +467,7 @@ src/CMakeFiles/meshedit.dir/png.cpp.o.provides.build: src/CMakeFiles/meshedit.di
 
 # Object files for target meshedit
 meshedit_OBJECTS = \
+"CMakeFiles/meshedit.dir/BBox.cpp.o" \
 "CMakeFiles/meshedit.dir/Point.cpp.o" \
 "CMakeFiles/meshedit.dir/pointcloud.cpp.o" \
 "CMakeFiles/meshedit.dir/bezierPatch.cpp.o" \
@@ -463,6 +488,7 @@ meshedit_OBJECTS = \
 # External object files for target meshedit
 meshedit_EXTERNAL_OBJECTS =
 
+meshedit: src/CMakeFiles/meshedit.dir/BBox.cpp.o
 meshedit: src/CMakeFiles/meshedit.dir/Point.cpp.o
 meshedit: src/CMakeFiles/meshedit.dir/pointcloud.cpp.o
 meshedit: src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o
@@ -486,7 +512,7 @@ meshedit: CGL/deps/glfw/src/libglfw3.a
 meshedit: /Users/BryceSchmidtchen/anaconda3/lib/libfreetype.dylib
 meshedit: /Users/BryceSchmidtchen/anaconda3/lib/libfreetype.dylib
 meshedit: src/CMakeFiles/meshedit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ../meshedit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ../meshedit"
 	cd "/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/meshedit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -494,6 +520,7 @@ src/CMakeFiles/meshedit.dir/build: meshedit
 
 .PHONY : src/CMakeFiles/meshedit.dir/build
 
+src/CMakeFiles/meshedit.dir/requires: src/CMakeFiles/meshedit.dir/BBox.cpp.o.requires
 src/CMakeFiles/meshedit.dir/requires: src/CMakeFiles/meshedit.dir/Point.cpp.o.requires
 src/CMakeFiles/meshedit.dir/requires: src/CMakeFiles/meshedit.dir/pointcloud.cpp.o.requires
 src/CMakeFiles/meshedit.dir/requires: src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o.requires
