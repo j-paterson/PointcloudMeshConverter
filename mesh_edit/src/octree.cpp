@@ -14,6 +14,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
   this->maxDepth = maxDepth;
   this->NodeBB = NodeBB;
   this->Parent = Parent;
+  this->hasChildren = false;
 
   if (this->depth == 0 && this->depth != maxDepth) {
       for (int i = 0; i < points.size(); i++) {
@@ -38,6 +39,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
   //in this current node, if one is in one of those bboxs then add it to the matching vector
   //after this process is complete for all points, we can call the consutrctors for these children
   //with the constructed bboxs and vectors. Don't forget to put them in the current node's pointer array also.
+    this->hasChildren = true;
     vector<BBox> boxes = NodeBB.OctChildren();
     vector< vector<Point> > pnts(8); //vector of 8 vectors of points
 
@@ -79,6 +81,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
       this->maxDepth = maxDepth;
       this->NodeBB = NodeBB;
       this->Center = NodeBB.centroid();
+      this->hasChildren = false;
 
       if (depth != maxDepth) {
         vector<BBox> boxes = NodeBB.OctChildren();
@@ -90,5 +93,6 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
         this->Children.push_back(OctreeNode(this->depth + 1, boxes[5], this->maxDepth));
         this->Children.push_back(OctreeNode(this->depth + 1, boxes[6], this->maxDepth));
         this->Children.push_back(OctreeNode(this->depth + 1, boxes[7], this->maxDepth));
+        this->hasChildren = true;
       }
     }

@@ -93,7 +93,15 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     BBox bb(Vector3D(-7, -7, -7), Vector3D(7, 7, 7)); //MAKE BBOX FOR SPHERE TEST
     OctreeNode r(0, bb, 5); //CONSTRUCT FULL OCTREE
     PointCloud pc(10); //make pointcloud for mesh constructin
+
     Mesh mResult = marchingCubes(r, IndicatorFunction);
+    for (int i = 0; i < mResult.triangles.size(); i++) {
+      printf("v1: %f %f %f \n v2: %f %f %f \n v3: %f %f %f ",
+      mResult.triangles[i].points[0].x, mResult.triangles[i].points[0].y, mResult.triangles[i].points[0].z,
+      mResult.triangles[i].points[1].x, mResult.triangles[i].points[1].y, mResult.triangles[i].points[1].z,
+      mResult.triangles[i].points[2].x, mResult.triangles[i].points[2].y, mResult.triangles[i].points[2].z);
+    }
+
     pc.loadMesh(mesh, mResult);
     //mergeVertices(mesh);
     fclose(file);

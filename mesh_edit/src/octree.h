@@ -21,6 +21,7 @@ class OctreeNode {
     CGL::Vector3D     Center;
     CGL::Vector3D     HalfSize;
     bool         IsLeaf;
+    bool hasChildren;
     int maxDepth;
     int depth;
 };
