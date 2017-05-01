@@ -34,6 +34,14 @@ namespace CGL {
     mesh->polygons.push_back(poly);
   }
 
+  void PointCloud::loadMesh(Polymesh* mesh, Mesh marchingCubesResult){
+    for(int i =0; i<marchingCubesResult.triangles.size(); i++){
+        addTriangle(mesh, marchingCubesResult.triangles[i].points[0],
+                            marchingCubesResult.triangles[i].points[1],
+                            marchingCubesResult.triangles[i].points[2]);
+    }
+  }
+
   void PointCloud::loadPoints(FILE* file) {
       for(int j = 0; j < this->points.size() / 3; j++)
       {
@@ -41,6 +49,5 @@ namespace CGL {
         printf("loading points: %lf, %lf, %lf \n", points[j].x, points[j].y, points[j].z);
       }
   }
-
 
 }
