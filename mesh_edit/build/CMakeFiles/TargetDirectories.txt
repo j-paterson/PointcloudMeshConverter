@@ -1,5 +1,0 @@
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/src/CMakeFiles/meshedit.dir
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glfw/CMakeFiles/uninstall.dir
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glfw/src/CMakeFiles/glfw.dir
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/src/CMakeFiles/CGL.dir
-/Users/BryceSchmidtchen/Google Drive/CS184/Final_Project/facemesh/mesh_edit/build/CGL/deps/glew/CMakeFiles/glew.dir
