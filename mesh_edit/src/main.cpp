@@ -91,7 +91,7 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
 
     //pass in a BBOX that is constructed based on the sphere being made
     BBox bb(Vector3D(-10, -10, -10), Vector3D(10, 10, 10)); //MAKE BBOX FOR SPHERE TEST
-    OctreeNode r(0, bb, 2); //CONSTRUCT FULL OCTREE
+    OctreeNode r(0, bb, 7); //CONSTRUCT FULL OCTREE
     PointCloud pc(10); //make pointcloud for mesh constructin
 
     Mesh* mResult = new Mesh;
