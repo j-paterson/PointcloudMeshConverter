@@ -95,16 +95,16 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
 
     //pass in a BBOX that is constructed based on the sphere being made
     BBox bb(Vector3D(-10, -10, -10), Vector3D(10, 10, 10)); //MAKE BBOX FOR SPHERE TEST
-    OctreeNode oct(nullptr, 0, bb, 5); //CONSTRUCT FULL OCTREE
+    OctreeNode oct(nullptr, 0, bb, 3); //CONSTRUCT FULL OCTREE
     collada_viewer->oNode = &oct;
     //maybe to test BBOX, don't run the marching cubes?
 
-    /*
+
     PointCloud pc(10); //make pointcloud for mesh constructin
     Mesh* mResult = new Mesh;
     marchingCubes(oct, IndicatorFunction, mResult);
     pc.loadMesh(mesh, *mResult);
-    */
+
 
     //mergeVertices(mesh);
     fclose(file);

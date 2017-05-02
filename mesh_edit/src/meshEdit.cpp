@@ -2,6 +2,7 @@
 #include "shaderUtils.h"
 #include "GL/glew.h"
 
+
 #define PI 3.14159265
 
 #include <cmath>
@@ -1553,14 +1554,8 @@ namespace CGL {
 
                       // draw all BVH bboxes with non-highlighted color
                       while (!tstack.empty()) {
-
-                        printf("here 1! \n", "hi");
                         OctreeNode *current = tstack.top();
-                        printf("here 2! \n", "hi");
                         tstack.pop();
-                        printf("here 3! \n", "hi");
-
-
 
                         current->NodeBB.draw(cnode); //COULD CHANGE TO HIGHLIGHTED COLOR
 
