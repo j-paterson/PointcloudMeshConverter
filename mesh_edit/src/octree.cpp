@@ -83,7 +83,7 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
       this->Center = NodeBB.centroid();
       this->hasChildren = false;
 
-      
+
       if (depth == maxDepth) {
         this->IsLeaf = true;
       } else {
@@ -104,3 +104,27 @@ OctreeNode::OctreeNode(vector<Point> points, int depth, OctreeNode *Parent, BBox
         this->hasChildren = true;
       }
     }
+
+    BBox OctreeNode::get_bbox() const {
+      return root->bb;
+    }
+
+    void OctreeNode::draw(OctreeNode *node, const Color& c) const {
+      if (OctreeNode->isLeaf()) {
+        for (Primitive *p : *(node->prims))
+          p->draw(c);
+      } else {
+        draw(node->l, c);
+        draw(node->r, c);
+      }
+    }
+
+    void OctreeNode::drawOutline(OctreeNode *node, const Color& c) const {
+      if (node->isLeaf()) {
+        for (Primitive *p : *(node->prims))
+          p->drawOutline(c);
+      } else {
+        drawOutline(node->l, c);
+        drawOutline(node->r, c);
+      }
+}
