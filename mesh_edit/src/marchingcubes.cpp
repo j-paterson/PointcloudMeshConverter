@@ -1,4 +1,5 @@
 #include "marchingcubes.h"
+#include "octree.h"
 #include <iostream>
 #include <vector>
 
