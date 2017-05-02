@@ -11,11 +11,14 @@
 
 #include <stdio.h>
 #include "../CGL/include/CGL/vector3D.h"
+#include "octree.h"
+#include <utility>
 
 class Point {
 public:
     Point(CGL::Vector3D p);
     CGL::Vector3D coordinates;
+    std::vector<std::pair<float, OctreeNode> > neighbors;
 };
 
 #endif

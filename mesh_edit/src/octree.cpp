@@ -5,33 +5,26 @@
 
 using namespace std;
 
-float hash_position(Vector3D currMin, Vector3D currMax, Vector3D rootMin, Vector3D rootMax) {
+
+float getHashKey(Vector3D rootValues, Vector3D leafValues, Vector3D currMin, Vector3D rootMin) {
   // The actual position value hashed is the offset from the minimum bounds of the grid
   // This offset should always be positive
-  float rootWidth = rootMax.x - rootMin.x;
-  float rootHeight = rootMax.y - rootMin.y;
-  float rootDepth = rootMax.z - rootMin.z;
-
-  float leafWidth = currMax.x - currMin.x;
-  float leafHeight = currMax.y - currMin.y;
-  float leafDepth = currMax.z - currMin.z;
-
   float offset_x = currMin.x - rootMin.x;
   float offset_y = currMin.y - rootMin.y;
   float offset_z = currMin.z - rootMin.z;
 
   //Total number of nodes in the x direction
-  float total_w = floor(rootWidth / leafWidth);
+  float total_w = floor(rootValues[0] / leafValues[0]);
   //Current node is the hash_x -th node from the minimum
-  float hash_x = floor(offset_x / leafWidth);
+  float hash_x = floor(offset_x / leafValues[0]);
 
   //Total number of nodes in the y direction
-  float total_h = floor(rootHeight / leafHeight);
+  float total_h = floor(rootValues[1] / leafValues[1]);
   //curent node is the hash_y -th node from the minimum.
-  float hash_y = floor(offset_y / leafHeight);
+  float hash_y = floor(offset_y / leafValues[1]);
 
   //current node is the hash_z -th node from the minimum
-  float hash_z = floor(offset_z / leafDepth);
+  float hash_z = floor(rootValues[2] / leafValues[2]);
 
   float hash = hash_x + (hash_y*total_w) + (hash_z*total_w*total_h);
 //  if(hash>0){
@@ -46,8 +39,93 @@ float hash_position(Vector3D currMin, Vector3D currMax, Vector3D rootMin, Vector
   return hash;
 }
 
+void assignNeighbors(OctreeNode centerNode, std::unordered_map<float, OctreeNode> hashMap){
+    bool finished = false;
+    while(!finished){
+        int internalRadius = 0;
+        int externalRadius = 1;
+        for(int x = -externalRadius; x < externalRadius; x++){
+            for(int y = -externalRadius; y < externalRadius; y++){
+                for(int z = -externalRadius; z < externalRadius; z++){
+                    //if we make it all the way through the current perimeter and the points are full, finished will stay true.
+                    finished=true;
+                    //check to ensure that we are not within the internal radius.
+                    bool insideInternalRadius = (abs(x)<internalRadius)&&(abs(y)<internalRadius)&&(abs(z)<internalRadius);
+
+                    //We only want to be scanning the perimiter of the cube.
+                    if(!insideInternalRadius){
+
+                        //Checkpos is the location of the node we are indexing over to
+                        Vector3D checkPos(centerNode.NodeBB.min.x + (x*centerNode.HLW[0]),
+                                          centerNode.NodeBB.min.y + (y*centerNode.HLW[1]),
+                                          centerNode.NodeBB.min.z + (x*centerNode.HLW[0]));
+
+                        //Get the hashkey for that location
+                        float hashKey = getHashKey(centerNode.root->HLW, centerNode.HLW, checkPos, centerNode.root->NodeBB.min);
+
+                        //Make sure there is a leaf node at that location
+                        if(hashMap.count(hashKey)>0){
+
+                            //Scan through each point in the inputed leaf node
+                            for(int p = 0; p < centerNode.nodePoints.size(); p++){
+
+                                Point currentPoint=centerNode.nodePoints[p];
+
+                                //calculate squared distance from the center of the current Node to the current Point
+                                Vector3D currentNodePoint = hashMap.at(hashKey).NodeBB.min;
+                                float currDistance = pow((currentPoint.coordinates.x-currentNodePoint.x),2)
+                                                     +pow((currentPoint.coordinates.y-currentNodePoint.y),2)
+                                                     +pow((currentPoint.coordinates.z-currentNodePoint.z),2);
+
+                                //If the neighbors vector is <8, we can just add onto it.
+                                if(currentPoint.neighbors.size()<8){
+                                    currentPoint.neighbors.push_back(pair<float, OctreeNode>(hashKey, hashMap.at(hashKey)));
+                                } else {
+                                    //Otherwise, we must compare the distances already in the neighbors vector
+                                    // to the current calculated distance.
+
+                                    int replace_n=-1;
+                                    int replace_dist=-1;
+
+                                    for(int n = 0; n<currentPoint.neighbors.size(); n++){
+
+                                        // For each neighbor, check if the distance to the current Node
+                                        // is less than the distance to that neighbor
+                                        float checkDistance = std::get<0>(currentPoint.neighbors[n]);
+
+                                        if(currDistance < checkDistance){
+
+                                            /* if the distance to the current point is less than the
+                                             * distance to one of the neighbors it might replace that neighbor.
+                                             *
+                                             */
+                                            if(replace_dist<checkDistance || replace_dist==-1){
+                                                replace_dist=checkDistance;
+                                                replace_n=n;
+                                            }
+                                        }
+                                    }
+                                    if(replace_n!=-1){
+                                        currentPoint.neighbors[replace_n] = pair<float, OctreeNode>(hashKey, hashMap.at(hashKey));
+                                    }
+                                }
+                                if(currentPoint.neighbors.size()<8){
+                                    finished=false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        internalRadius++;
+        externalRadius++;
+    }
+}
+
 //when we first call this consuctor, we will have an empty BBox so this constructor needs to
 OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, OctreeNode *Parent, BBox NodeBB, int maxDepth) {
+
 
     //if the depth is zero, expand the bbox etc but if not do other things
     this->depth = depth;
