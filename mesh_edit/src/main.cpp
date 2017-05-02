@@ -1,13 +1,12 @@
 #include "CGL/CGL.h"
 
 #include "collada.h"
-#include "meshEdit.h"
+#include "meshEdit.h" //contains octree.h
 #include "bezierPatch.h"
 #include "bezierCurve.h"
 #include "mergeVertices.h"
 #include "shaderUtils.h"
-#include "pointcloud.h"
-#include "marchingcubes.h"
+#include "pointcloud.h" //includes marchingcubes.h which includes octree.h :/
 
 #include <iostream>
 
@@ -17,6 +16,11 @@ using namespace CGL;
 #define msg(s) cerr << "[Collada Viewer] " << s << endl;
 
 int loadFile(MeshEdit* collada_viewer, const char* path) {
+
+  //made a MeshEdit local Octree var and in this function, set collada_viewer's Octree local var, then when we press V after the
+  //file has been loaded, then we should see the Octree since the visualize function will
+  //be able to work from within the
+
 
   Scene* scene = new Scene();
 
@@ -91,23 +95,17 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
 
     //pass in a BBOX that is constructed based on the sphere being made
     BBox bb(Vector3D(-10, -10, -10), Vector3D(10, 10, 10)); //MAKE BBOX FOR SPHERE TEST
-    OctreeNode r(0, bb, 7); //CONSTRUCT FULL OCTREE
+    OctreeNode oct(nullptr, 0, bb, 5); //CONSTRUCT FULL OCTREE
+    collada_viewer->oNode = &oct;
+    //maybe to test BBOX, don't run the marching cubes?
+
+    /*
     PointCloud pc(10); //make pointcloud for mesh constructin
-
     Mesh* mResult = new Mesh;
-    marchingCubes(r, IndicatorFunction, mResult);
-
-
-    for (int i = 0; i < mResult->triangles.size(); i++) {
-      printf("v1: %f %f %f \n v2: %f %f %f \n v3: %f %f %f ",
-      mResult->triangles[i].points[0].x, mResult->triangles[i].points[0].y, mResult->triangles[i].points[0].z,
-      mResult->triangles[i].points[1].x, mResult->triangles[i].points[1].y, mResult->triangles[i].points[1].z,
-      mResult->triangles[i].points[2].x, mResult->triangles[i].points[2].y, mResult->triangles[i].points[2].z);
-    }
-    
-
-
+    marchingCubes(oct, IndicatorFunction, mResult);
     pc.loadMesh(mesh, *mResult);
+    */
+
     //mergeVertices(mesh);
     fclose(file);
 

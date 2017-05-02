@@ -13,11 +13,14 @@
 #include "material.h"
 #include "halfEdgeMesh.h"
 #include "student_code.h"
+#include "bbox.h"
+#include "octree.h"
 
 #include <string>
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <stack>
 
 
 using namespace std;
@@ -218,6 +221,10 @@ class MeshEdit : public Renderer {
   virtual void mouse_button_event( int button, int event );
 
   void load( Scene* scene );
+
+  void visualize_accel() const;
+  OctreeNode* oNode;
+
 
  private:
 

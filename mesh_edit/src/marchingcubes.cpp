@@ -1,4 +1,5 @@
 #include "marchingcubes.h"
+#include "octree.h"
 #include <iostream>
 #include <vector>
 
@@ -375,18 +376,16 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
         int Tri_index=0;
         for (int i=0;triTable[index][i]!=-1;i+=3) {
             Triangle * newTri = new Triangle;
-            cout<<newTri->points.size()<<endl;
+            //cout<<newTri->points.size()<<endl;
             //For each set of three edges, find and add the vertices to the triangle and mesh points
             for(int j=0; j<3; j++){
                 newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
                 final_mesh->points.push_back(newTri->points[j]);
             }
-            //Add the completed triangle to the mesh triangles.
             Tri_index++;
             final_mesh->triangles.push_back(*newTri);
         }
     }
-
     //printmesh(final_mesh);
 }
 

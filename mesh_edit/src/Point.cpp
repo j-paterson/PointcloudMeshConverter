@@ -10,5 +10,4 @@
 
 Point::Point(CGL::Vector3D p) {
     this->coordinates = p;
-    std::vector<tuple<float, OctreeNode>> neighbors;
 }

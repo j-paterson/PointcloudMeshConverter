@@ -266,6 +266,10 @@ namespace CGL {
           case 'Q':
           smoothShading = !smoothShading;
           break;
+          case 'v':
+          case 'V':
+          visualize_accel(); //needs to be define
+          break;
           default:
           break;
         }
@@ -1496,4 +1500,92 @@ namespace CGL {
                       selectedFeature.invalidate();
                       hoveredFeature.invalidate();
                     }
+
+                    void MeshEdit::visualize_accel() const {
+
+                      //Use the OctreeNode in the current meshEdit instance
+
+                      glPushAttrib(GL_ENABLE_BIT);
+                      glDisable(GL_LIGHTING);
+                      glLineWidth(1);
+                      glEnable(GL_DEPTH_TEST);
+
+                      // hardcoded color settings
+                      Color cnode = Color(.5, .5, .5, .25);
+                      Color cnode_hl = Color(1., .25, .0, .6);
+                      Color cnode_hl_child = Color(1., 1., 1., .6);
+
+                      Color cprim_hl_left = Color(.6, .6, 1., 1);
+                      Color cprim_hl_right = Color(.8, .8, 1., 1);
+                      Color cprim_hl_edges = Color(0., 0., 0., 0.5);
+
+                      OctreeNode *selected = this->oNode->root; //represents the root node
+                      glPolygonOffset(1.0, 1.0);
+
+                      // render solid geometry (with depth offset)
+                      /*
+
+                      glEnable(GL_POLYGON_OFFSET_FILL);
+
+                      if (selected->isLeaf()) {
+                        selected->draw(selected, cprim_hl_left);
+                      } else {
+                        selected->draw(selected->l, cprim_hl_left);
+                        selected->draw(selected->r, cprim_hl_right);
+                      }
+                      */
+                      glDisable(GL_POLYGON_OFFSET_FILL);
+
+
+                      // draw geometry outline
+                      //selected->drawOutline(selected, cprim_hl_edges);
+
+                      // keep depth buffer check enabled so that mesh occluded bboxes, but
+                      // disable depth write so that bboxes don't occlude each other.
+
+                      glDepthMask(GL_FALSE); //need?
+
+                      // create traversal stack
+                      stack<OctreeNode *> tstack;
+
+                      // push initial traversal data
+                      tstack.push(selected->root);
+
+                      // draw all BVH bboxes with non-highlighted color
+                      while (!tstack.empty()) {
+
+                        printf("here 1! \n", "hi");
+                        OctreeNode *current = tstack.top();
+                        printf("here 2! \n", "hi");
+                        tstack.pop();
+                        printf("here 3! \n", "hi");
+
+
+
+                        current->NodeBB.draw(cnode); //COULD CHANGE TO HIGHLIGHTED COLOR
+
+                        if (current->hasChildren) {
+                          tstack.push(&current->Children[0]);
+                          tstack.push(&current->Children[1]);
+                          tstack.push(&current->Children[2]);
+                          tstack.push(&current->Children[3]);
+
+                          tstack.push(&current->Children[4]);
+                          tstack.push(&current->Children[5]);
+                          tstack.push(&current->Children[6]);
+                          tstack.push(&current->Children[7]);
+                        }
+                      }
+
+                      // draw selected node bbox and primitives
+                      //if (selected->l) selected->l->bb.draw(cnode_hl_child);
+                      //if (selected->r) selected->r->bb.draw(cnode_hl_child);
+
+                      glLineWidth(3.f);
+                      selected->NodeBB.draw(cnode_hl);
+
+                      glDepthMask(GL_TRUE);
+                      glPopAttrib();
+                    }
+
                   } // namespace CMU462
