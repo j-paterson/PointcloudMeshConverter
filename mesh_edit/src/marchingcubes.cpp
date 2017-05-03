@@ -334,8 +334,10 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     direction = direction/dir_magnitude;
     Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
     if(direction.x==unit_normal.x&&direction.y==unit_normal.y&&direction.z==unit_normal.z){
+        cout<<"Point inside!"<<endl;
         return 1;
     }else{
+        cout<<"Point outside!"<<endl;
         return 0;
     }
 }
@@ -385,12 +387,13 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
         }
     }else if(currentNode.IsLeaf&&currentNode.nodePoints.size()>0){
         //we have hit a leaf node, calculate an index for the octree node's cube.
+        cout<<"do we get here? We do."<<endl;
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3
         int Tri_index=0;
         for (int i=0;triTable[index][i]!=-1;i+=3) {
             Triangle * newTri = new Triangle;
-            //cout<<newTri->points.size()<<endl;
+            cout<<newTri->points.size()<<endl;
             //For each set of three edges, find and add the vertices to the triangle and mesh points
             for(int j=0; j<3; j++){
                 newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));
