@@ -174,6 +174,7 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
     } else if (this->depth == maxDepth) {
       this->IsLeaf = true;
+
     }
 
     for (int i = 0; i < points.size(); i++) {
@@ -182,10 +183,24 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
     this->Center = NodeBB.centroid();
 
-    Vector3D HLW = this->NodeBB.max - this->NodeBB.min;
-    this->HLW[0] = HLW[0];
-    this->HLW[1] = HLW[1];
-    this->HLW[2] = HLW[2];
+    //Vector3D HLW = this->NodeBB.max - this->NodeBB.min;
+    //this->HLW[0] = HLW[0];
+    //this->HLW[1] = HLW[1];
+    //this->HLW[2] = HLW[2];
+
+    if (this->IsLeaf && points.size() != 0) {
+      Vector3D pointSum;
+      Vector3D normSum;
+      for (int i = 0; i < points.size(); i++) {
+        pointSum+=points[i].coordinates;
+        normSum+=points[i].normal;
+      }
+      pointSum/=points.size();
+      normSum/=points.size();
+    }
+
+    this->avgPoint = pointSum;
+    this->avgNorm = normSum;
 
     //generate the 8 inner children of the current node.
     if (points.size() != 0 && this->depth != maxDepth) { //generate children when the current one isn't empty.
@@ -263,6 +278,21 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
         this->Children.push_back(OctreeNode(this->root, this->depth + 1, boxes[7], this->maxDepth));
         this->hasChildren = true;
       }
+    }
+
+    CGL::Vector3D OctreeNode::projectPoint(CGL::Vector3D cornerPoint) {
+      /*
+      The projection of a point q = (x, y, z) onto a plane given by a point p = (a, b, c) and a normal n = (d, e, f) is
+
+      q_proj = q - dot(q - p, n) * n
+      This calculation assumes that n is a unit vector.
+
+      this function projects "cornerPoint" onto the plane defined in the current node
+      */
+
+      Vector3D proj = cornerPoint - dot(cornerPoint - this->avgPoint, this->avgNorm) * this->avgNorm;
+      return proj;
+
     }
 
 

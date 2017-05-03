@@ -15,6 +15,63 @@ using namespace CGL;
 
 #define msg(s) cerr << "[Collada Viewer] " << s << endl;
 
+PointCloud loadPointsAndNorms(FILE* file) {
+
+  //should we negate the normals here?
+  char* currString = "1";
+  char* elString = "1";
+
+  string holdString;
+  string elHoldString;
+
+  int numVertice = 0;
+  CGL::Vector3D coordinatesHolder;
+  CGL::Vector3D normalHolder;
+
+
+  printf("%s\n", "inside load points and norms");
+
+  /*
+  while (currString != "end_header") {
+    printf("%s\n", "hi");
+
+    fscanf(file, "%c", currString);
+
+    holdString = currString;
+
+    printf("%s\n", "hi");
+
+    if (holdString == "element") {
+
+      fscanf(file, "%s", &elString);
+
+      elHoldString = elString;
+
+      if (elHoldString == "vertex") {
+        fscanf(file, "%d", &numVertice);
+      }
+
+    }
+  }
+  */
+  fscanf(file, "%d", &numVertice);
+
+
+  PointCloud pc(numVertice);
+
+  for (int i = 0; i < numVertice; i++) {
+    fscanf(file, "%lf %lf %lf", &coordinatesHolder.x, &coordinatesHolder.y, &coordinatesHolder.z);
+    fscanf(file, "%lf %lf %lf", &normalHolder.x, &normalHolder.y, &normalHolder.z);
+
+    cout << coordinatesHolder << endl;
+    cout << normalHolder << endl;
+
+    pc.points.push_back(Point(coordinatesHolder, normalHolder));
+  }
+
+  return pc;
+}
+
 int loadFile(MeshEdit* collada_viewer, const char* path) {
 
   //made a MeshEdit local Octree var and in this function, set collada_viewer's Octree local var, then when we press V after the
@@ -57,8 +114,10 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     node.instance = mesh;
     scene->nodes.push_back(node);
   }
-  else if (path_str.substr(path_str.length()-4, 4) == ".txt")
+  else if (path_str.substr(path_str.length()-4, 4) == ".NOtxt")
   {
+    printf("%s\n", "reading txt");
+
     Camera* cam = new Camera();
     cam->type = CAMERA;
     Node node;
@@ -82,6 +141,8 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
   }
   else if (path_str.substr(path_str.length()-4, 4) == ".rtf")
   {
+    printf("%s\n", "reading rtf");
+    \
     Camera* cam = new Camera();
     cam->type = CAMERA;
     Node node;
@@ -94,18 +155,45 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     //fscanf(file, "%d", &n);
 
     //pass in a BBOX that is constructed based on the sphere being made
-    BBox bb(Vector3D(-10, -10, -10), Vector3D(10, 10, 10)); //MAKE BBOX FOR SPHERE TEST
-    OctreeNode oct(nullptr, 0, bb, 7); //CONSTRUCT FULL OCTREE
+    BBox bb(Vector3D(-20, -20, -20), Vector3D(20, 20, 20)); //MAKE BBOX FOR SPHERE TEST
+    OctreeNode oct(nullptr, 0, bb, 5); //CONSTRUCT FULL OCTREE
     collada_viewer->oNode = &oct;
     //maybe to test BBOX, don't run the marching cubes?
 
-
     PointCloud pc(10); //make pointcloud for mesh constructin
-    Mesh* mResult = new Mesh;
-    marchingCubes(oct, IndicatorFunction, mResult);
-    pc.loadMesh(mesh, *mResult);
+    Mesh* meshResult = new Mesh;
+    marchingCubes(oct, IndicatorFunction, meshResult);
+    pc.loadMesh(mesh, *meshResult);
 
 
+    //mergeVertices(mesh);
+    fclose(file);
+
+    mesh->type = POLYMESH;
+    node.instance = mesh;
+    scene->nodes.push_back(node);
+  } else if (path_str.substr(path_str.length()-4, 4) == ".txt") {
+
+    printf("%s\n", "reading ply");
+    Camera* cam = new Camera();
+    cam->type = CAMERA;
+    Node node;
+    node.instance = cam;
+    scene->nodes.push_back(node);
+    Polymesh* mesh = new Polymesh();
+
+    FILE* file = fopen(path, "r");
+    int n = 0;
+    //fscanf(file, "%d", &n);
+
+    //make a function which takes the plyfile, parses it, and then constructs a point cloud which it returns;
+    //this ply file will already have to normals generated from the normal generator exe
+    PointCloud pc = loadPointsAndNorms(file);
+
+    //PointCloud pc(n);
+    //pc.loadPoints(file); lloadpoints is for the txt version
+
+    pc.add2mesh(mesh);
     //mergeVertices(mesh);
     fclose(file);
 

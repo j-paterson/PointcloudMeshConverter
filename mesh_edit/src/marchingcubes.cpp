@@ -352,6 +352,17 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     if()
 }
 
+int IndicatorFunctionTorus(CGL::Vector3D point) {
+  double value = (2 - sqrt(pow(point.x, 2) + pow(point.y, 2)) + pow(point.z, 2) - 1);
+  if (value <= 0) {
+    return 1;
+  } else {
+    return 0;
+  }
+
+
+}
+
 void printmesh(Mesh* mResult) {
   for (int i = 0; i < mResult->triangles.size(); i++) {
     printf("v1: %f %f %f \n v2: %f %f %f \n v3: %f %f %f ",

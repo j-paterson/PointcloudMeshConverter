@@ -15,6 +15,8 @@ class OctreeNode {
 
     OctreeNode(OctreeNode* root, vector<Point> points, int depth, OctreeNode *Parent, BBox NodeBB, int maxDepth);   //OctreeNode* root; ///< root node of the OT
     OctreeNode(OctreeNode* root, int depth, BBox NodeBB, int maxDepth); //this should just return a full octree of the maxDepth provided. No
+    CGL::Vector3D projectPoint(CGL::Vector3D point);
+
     //need to define initial BBox size
 
     //OctreeNode* get_root() const { return root; }
@@ -39,6 +41,8 @@ class OctreeNode {
     vector<Point> nodePoints; //POINT CLASS
     CGL::Vector3D     Center;
     CGL::Vector3D     HalfSize;
+    CGL::Vector3D     avgNorm;
+    CGL::Vector3D     avgPoint;
     bool         IsLeaf;
     bool hasChildren;
     int maxDepth;
