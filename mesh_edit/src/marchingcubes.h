@@ -24,5 +24,6 @@ typedef struct{
 
 void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh);
 int IndicatorFunction(CGL::Vector3D point);
+int IndicatorFunctionTorus(CGL::Vector3D point);
 
 #endif // MARCHINGCUBES_H

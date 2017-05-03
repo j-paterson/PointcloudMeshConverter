@@ -21,8 +21,12 @@ union Neighbor
 
 class Point {
 public:
-    Point(CGL::Vector3D p);
+    Point();
+    Point(CGL::Vector3D coordinates);
+    Point(CGL::Vector3D coordinates, CGL::Vector3D normal);
     CGL::Vector3D coordinates;
+    CGL::Vector3D vField;
+    CGL::Vector3D normal;
     std::vector<Neighbor> neighbors;
 };
 

@@ -6,16 +6,16 @@ using namespace std;
 
 namespace CGL {
   PointCloud::PointCloud(int pts) {
-    this->points = std::vector<Vector3D>(pts);
+    this->points = vector<Point>(pts);
   }
 
   void PointCloud::add2mesh(Polymesh* mesh) const
   {
     for (int i = 0; i < (this->points.size() / 3); i++) {
         Vector3D v0, v1, v2;
-        v0 = this->points[i];
-        v1 = this->points[i + 1];
-        v2 = this->points[i + 2];
+        v0 = this->points[i].coordinates;
+        v1 = this->points[i + 1].coordinates;
+        v2 = this->points[i + 2].coordinates;
         addTriangle(mesh, v0, v1, v2);
     }
   }
@@ -35,18 +35,20 @@ namespace CGL {
   }
 
   void PointCloud::loadMesh(Polymesh* mesh, Mesh marchingCubesResult){
-    for(int i =0; i<marchingCubesResult.triangles.size(); i++){
+    for(int i =0; i < marchingCubesResult.triangles.size(); i++){
         addTriangle(mesh, marchingCubesResult.triangles[i].points[0],
                             marchingCubesResult.triangles[i].points[1],
                             marchingCubesResult.triangles[i].points[2]);
     }
   }
 
-  void PointCloud::loadPoints(FILE* file) {
+  void PointCloud::loadPoints(FILE* file) { //meant to be loaded from the txt format I made
       for(int j = 0; j < this->points.size() / 3; j++)
       {
-        fscanf(file, "%lf %lf %lf", &points[j].x, &points[j].y, &points[j].z);
-        printf("loading points: %lf, %lf, %lf \n", points[j].x, points[j].y, points[j].z);
+        fscanf(file, "%lf %lf %lf", &points[j].coordinates.x, &points[j].coordinates.y, &points[j].coordinates.z);
+        //printf("loading points: %lf, %lf, %lf \n", points[j].x, points[j].y, points[j].z);
       }
   }
+
+
 }
