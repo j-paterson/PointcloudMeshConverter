@@ -326,17 +326,17 @@ Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
 
 unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
-    unsigned char index=0;
+    unsigned char index = 0;
     //Get all corners of the current node and compute it's index in the edge table
     vector<Vector3D> corners = currentNode.NodeBB.getCorners();
-    if (IndicatorFunctionTorus(corners[0])==1) index |=   1;
-    if (IndicatorFunctionTorus(corners[1])==1) index |=   2;
-    if (IndicatorFunctionTorus(corners[2])==1) index |=   4;
-    if (IndicatorFunctionTorus(corners[3])==1) index |=   8;
-    if (IndicatorFunctionTorus(corners[4])==1) index |=  16;
-    if (IndicatorFunctionTorus(corners[5])==1) index |=  32;
-    if (IndicatorFunctionTorus(corners[6])==1) index |=  64;
-    if (IndicatorFunctionTorus(corners[7])==1) index |= 128;
+    if (IndicatorFunction(corners[0])==1) index |=   1;
+    if (IndicatorFunction(corners[1])==1) index |=   2;
+    if (IndicatorFunction(corners[2])==1) index |=   4;
+    if (IndicatorFunction(corners[3])==1) index |=   8;
+    if (IndicatorFunction(corners[4])==1) index |=  16;
+    if (IndicatorFunction(corners[5])==1) index |=  32;
+    if (IndicatorFunction(corners[6])==1) index |=  64;
+    if (IndicatorFunction(corners[7])==1) index |= 128;
     return index;
 }
 
