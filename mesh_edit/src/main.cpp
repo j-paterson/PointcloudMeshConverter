@@ -63,8 +63,8 @@ PointCloud loadPointsAndNorms(FILE* file) {
     fscanf(file, "%lf %lf %lf", &coordinatesHolder.x, &coordinatesHolder.y, &coordinatesHolder.z);
     fscanf(file, "%lf %lf %lf", &normalHolder.x, &normalHolder.y, &normalHolder.z);
 
-    cout << coordinatesHolder << endl;
-    cout << normalHolder << endl;
+    //cout << coordinatesHolder << endl;
+    //cout << normalHolder << endl;
 
     pc.points.push_back(Point(coordinatesHolder, normalHolder));
   }
@@ -194,9 +194,9 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
       printf("%d\n", i);
     }
 
-    BBox bb(Vector3D(-1.5, -1.5, -1.5), Vector3D(1.5, 1.5, 1.5));
+    BBox bb(Vector3D(-2.0, -2.0, -2.0), Vector3D(2.0, 2.0, 2.0));
     Mesh* meshResult = new Mesh;
-    OctreeNode ocTest(nullptr, pc.points, 0, nullptr, bb, 3);
+    OctreeNode ocTest(nullptr, pc.points, 0, nullptr, bb, 4);
     marchingCubes(ocTest, IndicatorFunction, meshResult);
     pc.loadMesh(mesh, *meshResult);
 

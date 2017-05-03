@@ -327,30 +327,28 @@ Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
 int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
 {
     //Get average point and average node from currentNode
-    Vector3D projectedPoint=currentNode.projectPoint(point);
-    Vector3D direction= projectedPoint-point;
-    cout<<"Original Direction: ";
-    cout<<direction<<endl;
+
+    Vector3D projectedPoint = currentNode.projectPoint(point);
+    Vector3D direction = projectedPoint - point;
+    //cout<<"Original Direction (from corner to projected point): ";
+    //cout << direction << endl;
     double dir_magnitude = sqrt(pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2));
     if(dir_magnitude==0){
         return 0;
     }
-    direction = direction/dir_magnitude;
+    direction = direction.unit(); ///dir_magnitude;
+    Vector3D unit_normal = currentNode.avgNorm.unit(); ///normal_magnitude;
 
-    double normal_magnitude = sqrt(pow(currentNode.avgNorm.x, 2)+pow(currentNode.avgNorm.y, 2)+pow(currentNode.avgNorm.z, 2));
-    Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
-
-    cout<<"Average Point: ";
-    cout<<currentNode.avgPoint<<endl;
+     cout<<"\n------------------------------"<<endl;
+    cout<<"Original Plane Point: ";
+    cout<<currentNode.avgPoint << endl;
     cout<<"Original Corner Point: ";
-    cout<<point<<endl;
+    cout << point << endl;
     cout<<"Projected Point: ";
     cout<<projectedPoint<<endl;
-    cout<<"Direction Magnitude: ";
-    cout<<dir_magnitude<<endl;
     cout<<"Unit Direction Vector: ";
     cout<<direction<<endl;
-    cout<<"Unit Normal: ";
+    cout<<"Unit Normal: (Calculated Plane Normal) ";
     cout<<unit_normal<<endl;
 
     bool within_x = direction.x<=unit_normal.x+0.01 && direction.x>=unit_normal.x-0.01;
@@ -378,6 +376,7 @@ unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
     if (IndicatorFunction(corners[5], currentNode)==1) index |=  32;
     if (IndicatorFunction(corners[6], currentNode)==1) index |=  64;
     if (IndicatorFunction(corners[7], currentNode)==1) index |= 128;
+    cout<<"------- Done Calculating Index -------"<<endl;
     return index;
 }
 
@@ -414,7 +413,10 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
         int Tri_index=0;
         for (int i=0;triTable[index][i]!=-1;i+=3) {
             Triangle * newTri = new Triangle;
-            cout<<newTri->points.size()<<endl;
+            cout<<"Node is leaf:";
+            cout<<currentNode.IsLeaf<<endl;
+            cout<<"Current Depth";
+            cout<<currentNode.depth<<endl;
             //For each set of three edges, find and add the vertices to the triangle and mesh points
             for(int j=0; j<3; j++){
                 newTri->points.push_back(getEdgePoint(currentNode, triTable[index][i+j]));

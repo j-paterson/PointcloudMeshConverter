@@ -155,7 +155,7 @@ double Fo(CGL::Vector3D v, CGL::Vector3D nodeCenter, double nodeWidth)  {
 //when we first call this consuctor, we will have an empty BBox so this constructor needs to
 OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, OctreeNode *Parent, BBox NodeBB, int maxDepth) {
 
-    printf("hi im at depth: %d\n", depth);
+    //printf("hi im at depth: %d\n", depth);
     //if the depth is zero, expand the bbox etc but if not do other things
     this->depth = depth;
     this->maxDepth = maxDepth;
@@ -166,11 +166,11 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
     if (this->depth == 0 && this->depth != maxDepth) {
       for (int i = 0; i < points.size(); i++) {
-        printf("%s\n", "Expanding!");
+        //printf("%s\n", "Expanding!");
         this->NodeBB.expand(points[i].coordinates); //should expand the parent's bbox to include all points provide in our .ply.
       }
-    printf("max: %f\n", this->NodeBB.max.x);
-    printf("min: %f\n", this->NodeBB.min.x);
+    //printf("max: %f\n", this->NodeBB.max.x);
+    //printf("min: %f\n", this->NodeBB.min.x);
 
     this->root = this;
     this->Parent = nullptr;
@@ -291,8 +291,12 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
       this function projects "cornerPoint" onto the plane defined in the current node
       */
+      Vector3D proj = cornerPoint - this->avgPoint;
+      Vector3D unitAvg = this->avgNorm.unit();
+      double dist = (unitAvg.x * proj.x) + (unitAvg.y * proj.y) + (unitAvg.z * proj.z);
+      Vector3D projected_point = cornerPoint - dist*unitAvg;
+      //Vector3D proj = cornerPoint - dot(cornerPoint - this->avgPoint, this->avgNorm.norm()) * this->avgNorm.norm();
 
-      Vector3D proj = cornerPoint - dot(cornerPoint - this->avgPoint, this->avgNorm.norm()) * this->avgNorm.norm();
-      return proj;
+      return projected_point;
 
     }

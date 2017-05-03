@@ -96,8 +96,8 @@ using namespace std;
      max.y = std::max(max.y, p.y);
      max.z = std::max(max.z, p.z);
      extent = max - min;
-     printf("%f\n", min.x);
-     printf("%f\n", p.x);
+     //printf("%f\n", min.x);
+     //printf("%f\n", p.x);
    }
 
    bool inside(CGL::Vector3D p) {
