@@ -340,6 +340,8 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     double normal_magnitude = sqrt(pow(currentNode.avgNorm.x, 2)+pow(currentNode.avgNorm.y, 2)+pow(currentNode.avgNorm.z, 2));
     Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
 
+    cout<<"Average Point: ";
+    cout<<currentNode.avgPoint<<endl;
     cout<<"Original Corner Point: ";
     cout<<point<<endl;
     cout<<"Projected Point: ";
