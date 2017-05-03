@@ -329,8 +329,12 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     //Get average point and average node from currentNode
     Vector3D projectedPoint=currentNode.projectPoint(point);
     Vector3D direction = projectedPoint-point;
-
-    float dir_magnitude = pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2);
+    cout<<"Original Direction: ";
+    cout<<direction<<endl;
+    float dir_magnitude = sqrt(pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2));
+    if(dir_magnitude==0){
+        return 0;
+    }
     direction = direction/dir_magnitude;
 
     float normal_magnitude = pow(currentNode.avgNorm.x,2)+pow(currentNode.avgNorm.y,2)+pow(currentNode.avgNorm.z,2);
@@ -346,8 +350,10 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     cout<<direction<<endl;
     cout<<"Unit Normal: ";
     cout<<unit_normal<<endl;
-
-    if(direction.x==unit_normal.x&&direction.y==unit_normal.y&&direction.z==unit_normal.z){
+    bool within_x = direction.x<=unit_normal.x+0.01 && direction.x>=unit_normal.x-0.01;
+    bool within_y = direction.y<=unit_normal.y+0.01 && direction.y>=unit_normal.y-0.01;
+    bool within_z = direction.z<=unit_normal.z+0.01 && direction.z>=unit_normal.z-0.01;
+    if(within_x && within_y && within_z){
         cout<<"Point inside!"<<endl;
         return 1;
     }else{
