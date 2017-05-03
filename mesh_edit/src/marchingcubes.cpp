@@ -327,7 +327,7 @@ Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
 int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
 {
     //Get average point and average node from currentNode
-    Vector3D projectedPoint=currentNode.projectPoint(point);
+    Vector3D projectedPoint = currentNode.projectPoint(point);
     Vector3D direction = projectedPoint-point;
 
     float dir_magnitude = pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2);
