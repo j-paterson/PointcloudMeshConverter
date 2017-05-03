@@ -398,7 +398,6 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
         }
     }else if(currentNode.IsLeaf&&currentNode.nodePoints.size()>0){
         //we have hit a leaf node, calculate an index for the octree node's cube.
-        cout<<"do we get here? We do."<<endl;
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3
         int Tri_index=0;
