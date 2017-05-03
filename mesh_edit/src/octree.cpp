@@ -292,7 +292,7 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
       this function projects "cornerPoint" onto the plane defined in the current node
       */
 
-      Vector3D proj = cornerPoint - dot(cornerPoint - this->avgPoint, this->avgNorm) * this->avgNorm;
+      Vector3D proj = cornerPoint - dot(cornerPoint - this->avgPoint, this->avgNorm.norm()) * this->avgNorm.norm();
       return proj;
 
     }
