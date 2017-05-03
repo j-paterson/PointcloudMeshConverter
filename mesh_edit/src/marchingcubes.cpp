@@ -346,7 +346,7 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
     cout<<projectedPoint<<endl;
     cout<<"Direction Magnitude: ";
     cout<<dir_magnitude<<endl;
-    cout<<"Direction Vector: ";
+    cout<<"Unit Direction Vector: ";
     cout<<direction<<endl;
     cout<<"Unit Normal: ";
     cout<<unit_normal<<endl;
