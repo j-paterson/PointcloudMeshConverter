@@ -194,7 +194,7 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
       printf("%d\n", i);
     }
 
-    BBox bb(Vector3D(-0.1, -0.1, -0.1), Vector3D(0.1, 0.1, 0.1));
+    BBox bb(Vector3D(-1.5, -1.5, -1.5), Vector3D(1.5, 1.5, 1.5));
     Mesh* meshResult = new Mesh;
     OctreeNode ocTest(nullptr, pc.points, 0, nullptr, bb, 7);
     marchingCubes(ocTest, IndicatorFunction, meshResult);

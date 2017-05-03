@@ -374,7 +374,6 @@ void printmesh(Mesh* mResult) {
     mResult->triangles[i].points[1].x, mResult->triangles[i].points[1].y, mResult->triangles[i].points[1].z,
     mResult->triangles[i].points[2].x, mResult->triangles[i].points[2].y, mResult->triangles[i].points[2].z);
   }
-
 }
 
 
