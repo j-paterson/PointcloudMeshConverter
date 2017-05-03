@@ -1,5 +1,6 @@
 #include "octree.h"
 #include "bbox.h"
+#include "math.h"
 #include <iostream>
 #include <vector>
 
@@ -121,6 +122,24 @@ void assignNeighbors(OctreeNode centerNode, std::unordered_map<float, OctreeNode
         internalRadius++;
         externalRadius++;
     }
+}
+
+int baseFunction(double t) {
+  if (abs(t) < 0.5) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+double F(CGL::Vector3D v) {
+  //n should equal 3, the number of convolutions
+  double F = baseFunction(v.x) * baseFunction(v.y) * baseFunction(v.z);
+}
+
+double Fo(CGL::Vector3D v, CGL::Vector3D nodeCenter, double nodeWidth)  {
+  CGL::Vector3D newVec = (v - nodeCenter) / nodeWidth;
+  return F(newVec) * ( 1.0 / pow(nodeWidth, 3));
 }
 
 //when we first call this consuctor, we will have an empty BBox so this constructor needs to

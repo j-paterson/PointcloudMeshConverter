@@ -18,20 +18,14 @@ class OctreeNode {
     //need to define initial BBox size
 
     //OctreeNode* get_root() const { return root; }
-
     /**
     * Draw the BVH with OpenGL - used in visualizer
     */
-
-
     //void draw(const Color& c) const { }
     //void draw(OctreeNode *node, const Color& c) const;
-
     /**
     * Draw the BVH outline with OpenGL - used in visualizer
     */
-
-
     //void drawOutline(const Color& c) const { }
     //void drawOutline(OctreeNode *node, const Color& c) const;
 
