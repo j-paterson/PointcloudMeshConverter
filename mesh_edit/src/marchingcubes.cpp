@@ -324,6 +324,22 @@ Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
     return p;
 }
 
+int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
+{
+    //Get average point and average node from currentNode
+    Vector3D projectedPoint=currentNode.projectPoint(point);
+    Vector3D direction = projectedPoint-point;
+    float dir_magnitude = pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2);
+    float normal_magnitude = pow(currentNode.avgNorm.x,2)+pow(currentNode.avgNorm.y,2)+pow(currentNode.avgNorm.z,2);
+    direction = direction/dir_magnitude;
+    Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
+    if(direction.x==unit_normal.x&&direction.y==unit_normal.y&&direction.z==unit_normal.z){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
     unsigned char index=0;
@@ -340,18 +356,6 @@ unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
     return index;
 }
 
-int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
-{
-    //Get average point and average node from currentNode
-    Vector3D projectedPoint=currentNode.projectPoint(point);
-    Vector3D direction = projectedPoint-point;
-    float dir_magnitude = pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2);
-    float normal_magnitude = pow(currentNode.avgNorm.x,2)+pow(currentNode.avgNorm.y,2)+pow(currentNode.avgNorm.z,2);
-    direction = direction/magnitude;
-    Vector unit_normal = currentNode.avgNorm/normal_magnitude;
-    if()
-}
-
 int IndicatorFunctionTorus(CGL::Vector3D point) {
   double value = (2 - sqrt(pow(point.x, 2) + pow(point.y, 2)) + pow(point.z, 2) - 1);
   if (value <= 0) {
@@ -359,8 +363,6 @@ int IndicatorFunctionTorus(CGL::Vector3D point) {
   } else {
     return 0;
   }
-
-
 }
 
 void printmesh(Mesh* mResult) {

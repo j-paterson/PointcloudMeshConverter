@@ -197,10 +197,10 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
       }
       pointSum/=points.size();
       normSum/=points.size();
-    }
 
-    this->avgPoint = pointSum;
-    this->avgNorm = normSum;
+      this->avgPoint = pointSum;
+      this->avgNorm = normSum;
+    }
 
     //generate the 8 inner children of the current node.
     if (points.size() != 0 && this->depth != maxDepth) { //generate children when the current one isn't empty.
