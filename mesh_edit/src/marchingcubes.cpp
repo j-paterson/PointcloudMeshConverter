@@ -328,38 +328,42 @@ int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
 {
     //Get average point and average node from currentNode
 
-    Vector3D projectedPoint=currentNode.projectPoint(point);
-    Vector3D direction= projectedPoint-point;
-    cout<<"Original Direction: ";
-    cout<<direction<<endl;
+    Vector3D projectedPoint = currentNode.projectPoint(point);
+    Vector3D direction = projectedPoint - point;
+    //cout<<"Original Direction (from corner to projected point): ";
+    //cout << direction << endl;
     double dir_magnitude = sqrt(pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2));
     if(dir_magnitude==0){
         return 0;
     }
-    direction = direction/dir_magnitude;
+    direction = direction.unit(); ///dir_magnitude;
 
     double normal_magnitude = sqrt(pow(currentNode.avgNorm.x, 2)+pow(currentNode.avgNorm.y, 2)+pow(currentNode.avgNorm.z, 2));
-    Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
+    Vector3D unit_normal = currentNode.avgNorm.unit(); ///normal_magnitude;
 
+    /*
+    cout<<"Original Plane Point: ";
+    cout<<currentNode.avgPoint << endl;
     cout<<"Original Corner Point: ";
-    cout<<point<<endl;
+    cout << point << endl;
     cout<<"Projected Point: ";
     cout<<projectedPoint<<endl;
     cout<<"Direction Magnitude: ";
     cout<<dir_magnitude<<endl;
     cout<<"Unit Direction Vector: ";
     cout<<direction<<endl;
-    cout<<"Unit Normal: ";
+    cout<<"Unit Normal: (Calculated Plane Normal) ";
     cout<<unit_normal<<endl;
+    */
 
     bool within_x = direction.x<=unit_normal.x+0.01 && direction.x>=unit_normal.x-0.01;
     bool within_y = direction.y<=unit_normal.y+0.01 && direction.y>=unit_normal.y-0.01;
     bool within_z = direction.z<=unit_normal.z+0.01 && direction.z>=unit_normal.z-0.01;
     if(within_x && within_y && within_z){
-        cout<<"Point inside!"<<endl;
+        //cout<<"Point inside!"<<endl;
         return 1;
     }else{
-        cout<<"Point outside!"<<endl;
+        //cout<<"Point outside!"<<endl;
         return 0;
     }
 }
