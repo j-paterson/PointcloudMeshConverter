@@ -79,7 +79,10 @@ void assignNeighbors(OctreeNode centerNode, std::unordered_map<float, OctreeNode
 
                                 //If the neighbors vector is <8, we can just add onto it.
                                 if(currentPoint.neighbors.size()<8){
-                                    currentPoint.neighbors.push_back(pair<float, OctreeNode>(hashKey, hashMap.at(hashKey)));
+                                    Neighbor newNeighbor;
+                                    newNeighbor.distance=currDistance;
+                                    newNeighbor.hashKey= hashKey;
+                                    currentPoint.neighbors.push_back(newNeighbor);
                                 } else {
                                     //Otherwise, we must compare the distances already in the neighbors vector
                                     // to the current calculated distance.
@@ -91,7 +94,7 @@ void assignNeighbors(OctreeNode centerNode, std::unordered_map<float, OctreeNode
 
                                         // For each neighbor, check if the distance to the current Node
                                         // is less than the distance to that neighbor
-                                        float checkDistance = std::get<0>(currentPoint.neighbors[n]);
+                                        float checkDistance = currentPoint.neighbors[n].distance;
 
                                         if(currDistance < checkDistance){
 
@@ -106,10 +109,15 @@ void assignNeighbors(OctreeNode centerNode, std::unordered_map<float, OctreeNode
                                         }
                                     }
                                     if(replace_n!=-1){
-                                        currentPoint.neighbors[replace_n] = pair<float, OctreeNode>(hashKey, hashMap.at(hashKey));
+                                        //This means we found a neighbor whose distance was greater than the distance to the current Node
+                                        Neighbor newNeighbor;
+                                        newNeighbor.distance=currDistance;
+                                        newNeighbor.hashKey= hashKey;
+                                        currentPoint.neighbors[replace_n] = newNeighbor;
                                     }
                                 }
                                 if(currentPoint.neighbors.size()<8){
+                                    //If any of the points are under the total size, we need to expand the search radius
                                     finished=false;
                                 }
                             }
