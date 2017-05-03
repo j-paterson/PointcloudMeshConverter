@@ -34,7 +34,7 @@ using namespace std;
    BBox() {
        max = CGL::Vector3D(-10000000000.0, -1000000000.0, -10000000000.0);
        min = CGL::Vector3D(10000000000.0,  10000000000.0,  1000000000.0);
-     extent = max - min;
+       extent = max - min;
    }
 
    /**
@@ -96,6 +96,8 @@ using namespace std;
      max.y = std::max(max.y, p.y);
      max.z = std::max(max.z, p.z);
      extent = max - min;
+     printf("%f\n", min.x);
+     printf("%f\n", p.x);
    }
 
    bool inside(CGL::Vector3D p) {

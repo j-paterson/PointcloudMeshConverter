@@ -190,10 +190,16 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
     //this ply file will already have to normals generated from the normal generator exe
     PointCloud pc = loadPointsAndNorms(file);
 
-    //PointCloud pc(n);
-    //pc.loadPoints(file); lloadpoints is for the txt version
+    for (int i = 0; i < pc.points.size(); i++) {
+      printf("%d\n", i);
+    }
 
-    pc.add2mesh(mesh);
+    BBox bb(Vector3D(-0.1, -0.1, -0.1), Vector3D(0.1, 0.1, 0.1));
+    Mesh* meshResult = new Mesh;
+    OctreeNode ocTest(nullptr, pc.points, 0, nullptr, bb, 7);
+    marchingCubes(ocTest, IndicatorFunction, meshResult);
+    pc.loadMesh(mesh, *meshResult);
+
     //mergeVertices(mesh);
     fclose(file);
 

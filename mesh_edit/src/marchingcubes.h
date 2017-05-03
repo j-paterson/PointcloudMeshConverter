@@ -10,7 +10,7 @@
 
 using namespace std;
 
-typedef int (* vFunctionCall)(CGL::Vector3D args);
+typedef int (* vFunctionCall)(CGL::Vector3D point, OctreeNode currentNode);
 
 typedef struct {
     vector<CGL::Vector3D> points= * new vector<CGL::Vector3D>();
@@ -23,7 +23,7 @@ typedef struct{
 } Mesh;
 
 void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh * final_mesh);
-int IndicatorFunction(CGL::Vector3D point);
+int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode);
 int IndicatorFunctionTorus(CGL::Vector3D point);
 
 #endif // MARCHINGCUBES_H

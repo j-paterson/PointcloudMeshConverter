@@ -324,31 +324,36 @@ Vector3D getEdgePoint(OctreeNode currentNode, int edgeNum){
     return p;
 }
 
+int IndicatorFunction(CGL::Vector3D point, OctreeNode currentNode)
+{
+    //Get average point and average node from currentNode
+    Vector3D projectedPoint=currentNode.projectPoint(point);
+    Vector3D direction = projectedPoint-point;
+    float dir_magnitude = pow(direction.x,2)+pow(direction.y,2)+pow(direction.z,2);
+    float normal_magnitude = pow(currentNode.avgNorm.x,2)+pow(currentNode.avgNorm.y,2)+pow(currentNode.avgNorm.z,2);
+    direction = direction/dir_magnitude;
+    Vector3D unit_normal = currentNode.avgNorm/normal_magnitude;
+    if(direction.x==unit_normal.x&&direction.y==unit_normal.y&&direction.z==unit_normal.z){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 unsigned char getIndex(OctreeNode currentNode, vFunctionCall IndicatorFunction)
 {
     unsigned char index = 0;
     //Get all corners of the current node and compute it's index in the edge table
     vector<Vector3D> corners = currentNode.NodeBB.getCorners();
-    if (IndicatorFunction(corners[0])==1) index |=   1;
-    if (IndicatorFunction(corners[1])==1) index |=   2;
-    if (IndicatorFunction(corners[2])==1) index |=   4;
-    if (IndicatorFunction(corners[3])==1) index |=   8;
-    if (IndicatorFunction(corners[4])==1) index |=  16;
-    if (IndicatorFunction(corners[5])==1) index |=  32;
-    if (IndicatorFunction(corners[6])==1) index |=  64;
-    if (IndicatorFunction(corners[7])==1) index |= 128;
+    if (IndicatorFunction(corners[0], currentNode)==1) index |=   1;
+    if (IndicatorFunction(corners[1], currentNode)==1) index |=   2;
+    if (IndicatorFunction(corners[2], currentNode)==1) index |=   4;
+    if (IndicatorFunction(corners[3], currentNode)==1) index |=   8;
+    if (IndicatorFunction(corners[4], currentNode)==1) index |=  16;
+    if (IndicatorFunction(corners[5], currentNode)==1) index |=  32;
+    if (IndicatorFunction(corners[6], currentNode)==1) index |=  64;
+    if (IndicatorFunction(corners[7], currentNode)==1) index |= 128;
     return index;
-}
-
-int IndicatorFunction(CGL::Vector3D point)
-{
-    CGL::Vector3D center(0,0,0);
-    double radius = 5;
-     if(pow((point.x - center.x),2) + pow((point.y - center.y),2) + pow((point.z - center.z),2) < (radius*radius)){
-         return 1;
-     }else{
-         return 0;
-     }
 }
 
 int IndicatorFunctionTorus(CGL::Vector3D point) {
@@ -358,8 +363,6 @@ int IndicatorFunctionTorus(CGL::Vector3D point) {
   } else {
     return 0;
   }
-
-
 }
 
 void printmesh(Mesh* mResult) {
@@ -380,7 +383,7 @@ void marchingCubes(OctreeNode currentNode, vFunctionCall IndicatorFunction, Mesh
         for(int i = 0; i<8; i++){
             marchingCubes(currentNode.Children[i], IndicatorFunction, final_mesh);
         }
-    }else if(currentNode.IsLeaf){
+    }else if(currentNode.IsLeaf&&currentNode.nodePoints.size()>0){
         //we have hit a leaf node, calculate an index for the octree node's cube.
         unsigned char index = getIndex(currentNode, IndicatorFunction);
         //Index into the tri table, which holds the edges intersected by triangles in sets of 3

@@ -143,6 +143,8 @@ int baseFunction(double t) {
 double F(CGL::Vector3D v) {
   //n should equal 3, the number of convolutions
   double F = baseFunction(v.x) * baseFunction(v.y) * baseFunction(v.z);
+
+  return F;
 }
 
 double Fo(CGL::Vector3D v, CGL::Vector3D nodeCenter, double nodeWidth)  {
@@ -153,7 +155,7 @@ double Fo(CGL::Vector3D v, CGL::Vector3D nodeCenter, double nodeWidth)  {
 //when we first call this consuctor, we will have an empty BBox so this constructor needs to
 OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, OctreeNode *Parent, BBox NodeBB, int maxDepth) {
 
-
+    printf("hi im at depth: %d\n", depth);
     //if the depth is zero, expand the bbox etc but if not do other things
     this->depth = depth;
     this->maxDepth = maxDepth;
@@ -164,15 +166,17 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
     if (this->depth == 0 && this->depth != maxDepth) {
       for (int i = 0; i < points.size(); i++) {
+        printf("%s\n", "Expanding!");
         this->NodeBB.expand(points[i].coordinates); //should expand the parent's bbox to include all points provide in our .ply.
-    }
+      }
+    printf("max: %f\n", this->NodeBB.max.x);
+    printf("min: %f\n", this->NodeBB.min.x);
 
     this->root = this;
     this->Parent = nullptr;
 
     } else if (this->depth == maxDepth) {
       this->IsLeaf = true;
-
     }
 
     for (int i = 0; i < points.size(); i++) {
@@ -212,21 +216,21 @@ OctreeNode::OctreeNode(OctreeNode* root, vector<Point> points, int depth, Octree
 
       for(int i = 0; i < points.size(); i++) {
           if (boxes[0].inside(points[i].coordinates)) {
-          pnts[0].push_back(points[i]);
+              pnts[0].push_back(points[i]);
           } else if (boxes[1].inside(points[i].coordinates)) {
-          pnts[1].push_back(points[i]);
+              pnts[1].push_back(points[i]);
           } else if (boxes[2].inside(points[i].coordinates)) {
-          pnts[2].push_back(points[i]);
+              pnts[2].push_back(points[i]);
           } else if (boxes[3].inside(points[i].coordinates)) {
-          pnts[3].push_back(points[i]);
+              pnts[3].push_back(points[i]);
           } else if (boxes[4].inside(points[i].coordinates)) {
-          pnts[4].push_back(points[i]);
+              pnts[4].push_back(points[i]);
           } else if (boxes[5].inside(points[i].coordinates)) {
-          pnts[5].push_back(points[i]);
+              pnts[5].push_back(points[i]);
           } else if (boxes[6].inside(points[i].coordinates)) {
-          pnts[6].push_back(points[i]);
+              pnts[6].push_back(points[i]);
           } else if (boxes[7].inside(points[i].coordinates)) {
-          pnts[7].push_back(points[i]);
+              pnts[7].push_back(points[i]);
           }
     }
 
