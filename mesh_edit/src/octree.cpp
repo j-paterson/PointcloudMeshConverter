@@ -143,6 +143,8 @@ int baseFunction(double t) {
 double F(CGL::Vector3D v) {
   //n should equal 3, the number of convolutions
   double F = baseFunction(v.x) * baseFunction(v.y) * baseFunction(v.z);
+
+  return F;
 }
 
 double Fo(CGL::Vector3D v, CGL::Vector3D nodeCenter, double nodeWidth)  {
